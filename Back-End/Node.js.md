@@ -26,12 +26,13 @@
     - 200 - 299: SUCCESS
     - 300 - 399: REDIRECTS
     - 400 - 499: USER/CLIENT ERROR
-      - 401: Wrong Password, you can fix it. INVALID
-      - 403: Right Password, but you cannot see it. FORBIDDEN
-      - 418: (Look Up)
-        - *If you return something within the 200's while working with Angular, it won't return error code. However in the 400's, it will.*
+      + 401: Wrong Password, you can fix it. INVALID
+      + 403: Right Password, but you cannot see it. FORBIDDEN
+      + 418: (Look Up)
     - 500 - 599: SERVER ERROR
-      - 503: Too much coming in. SERVER OVERLOAD
+      + 503: Too much coming in. SERVER OVERLOAD
+  
+    `If you return something within the 200's while working with Angular, it won't return error code. However in the 400's, it will.`
 
 ## REST (Theory)
   * REpresentational State Transfer
@@ -262,3 +263,17 @@ server.listen(port, () => console.log('API Running on port 5000')); // listens f
   * Layered System.
   * Code on Demand.
   * Uniform Interfaces.
+
+## Misc Notes
+* `cors` is used to connect your databases.
+* `server.use(cors());`
+* Connected with `Axios`.
+```JS
+  getPosts()
+    axios.get(localhost:500/api/posts)
+    .then(response => this.setState({ posts: response.data }))
+    .catch(error => console.error( 'Server Error: Error' ))
+```
+* Prestyled Components? Styled Components.
+* `npm install styled-components`
+* `injectGlobal` Styles the entire page.
