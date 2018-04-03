@@ -20,48 +20,48 @@
 
 ## HTTP (Theory)
   * Methods
-    * POST, GET, PUT, DELETE
+    - POST, GET, PUT, DELETE
   * Status Codes
-    * 200 (OK), 201 (CREATED), 400 (BAD REQUEST), 404 (NOT FOUND), 500 (SERVER ERROR)
-    * 200 - 299: SUCCESS
-    * 300 - 399: REDIRECTS
-    * 400 - 499: USER/CLIENT ERROR
-      * 401: Wrong Password, you can fix it. INVALID
-      * 403: Right Password, but you cannot see it. FORBIDDEN
-      * 418: (Look Up)
-        * *If you return something within the 200's while working with Angular, it won't return error code. However in the 400's, it will.*
-    * 500 - 599: SERVER ERROR
-      * 503: Too much coming in. SERVER OVERLOAD
+    - 200 (OK), 201 (CREATED), 400 (BAD REQUEST), 404 (NOT FOUND), 500 (SERVER ERROR)
+    - 200 - 299: SUCCESS
+    - 300 - 399: REDIRECTS
+    - 400 - 499: USER/CLIENT ERROR
+      - 401: Wrong Password, you can fix it. INVALID
+      - 403: Right Password, but you cannot see it. FORBIDDEN
+      - 418: (Look Up)
+        - *If you return something within the 200's while working with Angular, it won't return error code. However in the 400's, it will.*
+    - 500 - 599: SERVER ERROR
+      - 503: Too much coming in. SERVER OVERLOAD
 
 ## REST (Theory)
   * REpresentational State Transfer
-    * *Restful API*
-    * *API* = *Application Programming Interface*
+    - *Restful API*
+    - *API* = *Application Programming Interface*
   * Resource Thinking
-    * *A `resource` is any piece of data that your server is handeling.*
-    * *Users can be considered resources.*
+    - *A `resource` is any piece of data that your server is handeling.*
+    - *Users can be considered resources.*
   * Endpoint Design
-    * `/api/user` - single endpoint per resource.
+    - `/api/user` - single endpoint per resource.
 
 ## Node (Theory and Practice)
   * Advantages
-    * Node is a way to run JavaScript outside of the browser.
-    * Node is a JavaScript run-time environment (like a compiler).
-    * No context switching.
-    * Same paradigm as JavaScript.
+    - Node is a way to run JavaScript outside of the browser.
+    - Node is a JavaScript run-time environment (like a compiler).
+    - No context switching.
+    - Same paradigm as JavaScript.
   * Disadvantages
-    * Single Threaded - an advantage, but still a disadvantage.
+    - Single Threaded - an advantage, but still a disadvantage.
 
 ## Express (Theory and Practice)
   * Advantages
-    * minimalistic
-    * extendible
+    - minimalistic
+    - extendible
   * Disadvantages
-    * minimlaistic
+    - minimlaistic
   * Core Parts
-    * Routing - A way to handle requests and execute code.
-    * Middleware - Extends the functionality of Express applications.
-    * Sub-Applications - Assembles components.
+    - Routing - A way to handle requests and execute code.
+    - Middleware - Extends the functionality of Express applications.
+    - Sub-Applications - Assembles components.
 
 ## Code
 
@@ -160,6 +160,20 @@ server.get('/api/users', (req, res) => { // can also use arrow functions here in
     });
 });
 
+// localhost:5000/api/users/search?userid=2 // how you pass things to the query string
+server.get('/api/users/search', (req, res) => {
+  const { userid } = req.query; // how to read the query string
+
+  db
+    .findById(userid)
+    .then(users => {
+      res.json(users[0]);
+    })
+    .catch(error => {
+      res.status(500).json(error);
+    });
+});
+
 server.get('/api/users/:id', (req, res) => {
   const { id } = req.params;
 
@@ -219,7 +233,7 @@ server.put('/api/users/:id', (req, res) => {
     .then (count => {
       if (count > 0) {
         db.findById(id).then(updateUser => {
-          res.status(200).json(updatedUser);\
+          res.status(200).json(updatedUser);
         });
       } else {
         res
@@ -235,3 +249,16 @@ server.put('/api/users/:id', (req, res) => {
 const port = 5000; // defines port the server will listen to
 server.listen(port, () => console.log('API Running on port 5000')); // listens for traffic on the port defined. () defines a callback function that you can use to put something in the console or other things.
 ```
+
+## Rest
+  *Principles and constraints. `Recommendations`, not `law`.*
+
+  ### Constraints
+  
+  * Client-server architecture.
+  * Stateless Architecture: Requests are not related to each other, they stand on their own.
+  * Cacheable
+    - GET, PUT, DELETE should be *idempotent*.
+  * Layered System.
+  * Code on Demand.
+  * Uniform Interfaces.
