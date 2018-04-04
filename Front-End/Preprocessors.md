@@ -1,6 +1,6 @@
-#Preprocessors
+# Preprocessors
 
-Less > Compiler (JS) > CSS
+`Less > Compiler (JS) > CSS`
 
 You can nest with less code.
 
@@ -22,9 +22,9 @@ Only use it as much as you can to get the specificity you need and don’t use i
 
 //
 
-##Variables
+## Variables
 
-@primary-color: blue;
+`@primary-color: blue;`
 
 You use this as a baseline for different things.
 
@@ -46,11 +46,13 @@ Pseudo-selectors are things like after, hover, active, anytime you’re doing so
 &:hover {
  Color: red;
 }
+```
 
 This changes the color of the nested item. It goes below the element you’re adjusting.
 
-So like’
+So like
 
+``` CSS
 .parent {
  Color: purple;
 
@@ -63,7 +65,7 @@ So like’
 
 You will nest it within it’s immediate parent, as it’s still effected by the same cascade of specificity.
 
-&:after puts it at the end of the element, &:before puts it at the beginning, &:hover gives it a hover element, and &:active is for clicks..
+`&:after` puts it at the end of the element, `&:before` puts it at the beginning, `&:hover` gives it a hover element, and `&:active` is for clicks..
 
 You can assign anything to a variable, so these could be used in a variable to change multiple items.
 
@@ -73,20 +75,21 @@ The media queries will always bubble to the immediate parent, so you will need t
 
 ---
 
-##Media Quires can also be set in variables.
+## Media Quires can also be set in variables.
 ```CSS
 @phone - “(max-width: 500px)”;
 
 @media @phone {
 Background: black;
 }
-
+```
 This sets the media width and breakpoint in one go.
 
 //
 
 Mix-ins are classes that are placed inside other classes.
 
+```CSS
 .button-styles-lambda {
   width: 200px;
   height: 50px;
@@ -100,7 +103,6 @@ button {
   .button-styles-lambda;
   //.button-creator(200px,100px);
 }
-
 ```
 
 Button is being put in as a mix-in.
@@ -111,7 +113,7 @@ You can mix in variables with mix ins that go into classes.
 
 Variables > Mix ins > general styles > Components > Pages
 
-Waterfall order.
+`Waterfall order.`
 
 Mix-ins must be applied the the UL tag not the a tag.
 

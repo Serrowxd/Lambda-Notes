@@ -1,8 +1,8 @@
-#React Router
+# React Router
 
 `<Route exact path = “/” etc />` sets the page to be completely separate from the rest.
 
-app.get handles params and querys
+`app.get` handles params and querys
 
 ---
 

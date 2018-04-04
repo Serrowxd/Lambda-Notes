@@ -1,12 +1,12 @@
 # HTML / CSS
 
-W3c.org // Writes the compendium for a baseline web browser.
+`W3c.org` // Writes the compendium for a baseline web browser.
 
 Html5 Doctype is a standard
 
 `Codepen.io`
 
-You can set <name> tags, but they are not consistent across browsers.
+You can set `<name>` tags, but they are not consistent across browsers.
 
 `https://meyerweb.com/eric/tools/css/reset/`
 
@@ -20,7 +20,7 @@ Anything inside of an element will inherit the colors from the CSS.
 
 You can only have 1 ID but multiple classes. Only use ID’s when you have to.
 
-!important in CSS makes Class more important than ID.
+`!important` in CSS makes Class more important than ID.
 
 It should always go Element/Class/ID.
 
@@ -48,29 +48,29 @@ Always zero value while padding/margining or you will short value it. 20px 30px 
 
 <nav> is an element name and can be referenced in css as nav {}
 
-Margin: 0 auto; // this sets your margin to equal on either side.
+`Margin: 0 auto;` // this sets your margin to equal on either side.
 
 You can also use %’s to define how much of a container you are using.
 
-Display: inline-block; // this sets everything in a line for an list item.
+`Display: inline-block;` // this sets everything in a line for an list item.
 
-Block takes up the whole width, inline-block takes up what’s available in the content.
+`Block` takes up the whole width, inline-block takes up what’s available in the content.
 
 ---
 
-Margin is top and bottom and left and right.
+`Margin` is top and bottom and left and right.
 
-Inline is small inline-block is larger.
+`Inline` is small inline-block is larger.
 
-Images are always inline not inline-block.
+`Images` are always inline not inline-block.
 
 Images listen to white space in HTML when going by inline-block.
 
 ---
 
-Floats take an element off the page, lift it, and then allow items to go under it.
+`Floats` take an element off the page, lift it, and then allow items to go under it.
 
-Clear puts a block under the float to avoid it being crushed with other stuff. Always put it below the last float that is being adjusted.
+`Clear` puts a block under the float to avoid it being crushed with other stuff. Always put it below the last float that is being adjusted.
 
 Always clear in the same direction that you floated, but you can also clear both.
 
@@ -78,11 +78,11 @@ If you have a float, you always have to have a clear for it.
 
 Every property for every element comes as Static in it’s position.
 
-Position: relative; // gives elements relative position to itself, usually children.
+`Position: relative;` // gives elements relative position to itself, usually children.
 
-Position: absolute; // Gives an element an absolute position from the page. Top/Left/Right/Bottom, it also needs to be harnessed by position: relative to the parent elements.
+`Position: absolute;` // Gives an element an absolute position from the page. Top/Left/Right/Bottom, it also needs to be harnessed by position: relative to the parent elements.
 
-Position: fixed; // keeps the element fixed to the viewport.
+`Position: fixed;` // keeps the element fixed to the viewport.
 
 ---
 

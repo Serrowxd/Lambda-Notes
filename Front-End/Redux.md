@@ -1,8 +1,8 @@
-#Redux
+# Redux
 
-###Redux is State Management.
+### Redux is State Management.
 
-##Predictable States
+## Predictable States
 
 React —— Redux
 [UI] + [Data (State)]
@@ -33,12 +33,12 @@ Redux is best for large scale applications, or when you’re drilling components
 
 Finite State Machine and Pub/Sub patterns // Publisher/Subscriber
 
-#Redux:
+# Redux:
 * Store
-** Initial State
-** Get State
-** Update State
-** Notify Listeners/Subscribers of State Changes
+  * Initial State
+  * Get State
+  * Update State
+  * Notify Listeners/Subscribers of State Changes
 * Actions and Action Creators
 * Reducers
 React Bindings for Redux.
@@ -58,7 +58,7 @@ You can also mesh these two to make it faster
 
 Do you need `state`? Use `class` components.
 
-Redux is ***Not*** a finite state machine, but the thinking in states helps understand how Redux works.
+Redux is `*not*` a finite state machine, but the thinking in states helps understand how Redux works.
 
 Every time you want something to happen, you have to dispatch an action.
 

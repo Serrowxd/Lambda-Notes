@@ -1,8 +1,8 @@
-#JavaScript
+# JavaScript
 
 JavaScript can be used full-stack, or front-end and back-end on any web server or application.
 
-Jsbin.com
+`Jsbin.com`
 
 The new variable declarations are: let / const
 
@@ -168,7 +168,7 @@ If you start a .reduce function, you must always define a final variable. It wil
 
 Quokka — Worthwhile to install.
 
-##Closure:
+## Closure:
 ```JS
 Const myAmazingVar = ‘KITTY’;
  Function exposeKitty() {
@@ -195,7 +195,7 @@ Pythontutor.com
 
 ---
 
-##Template Strings
+## Template Strings
 ```JS
 Console.log(’Hello ‘ + name);
 ```
@@ -211,7 +211,7 @@ This is a new way to represent strings.
 
 ---
 
-##Fat Arrow Function
+## Fat Arrow Function
 ```JS
 Const function = parameter => return;
 
@@ -232,7 +232,7 @@ This loops over the array and returns each item in the array.
 Same thing as the fatarrow function above.
 
 
-##Recursion
+## Recursion
 
 Another way to represent a loop.
 
@@ -264,7 +264,7 @@ sayName("D'Artagan");
 
 ---
 
-##New Binding
+## New Binding
 
 Code in a capital case is a constructor function.
 ```JS

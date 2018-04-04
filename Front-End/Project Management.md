@@ -1,4 +1,4 @@
-#Project Management Notes
+# Project Management Notes
 
 - Waterfall Model is rigid and used by people who are not sure what they are doing.
 - Agile Model is better suited for software developement.
@@ -6,8 +6,8 @@
 - Kanban is priority based.
 
 
-## https://en.wikipedia.org/wiki/Agile_software_development // Agile
-## https://en.wikipedia.org/wiki/Scrum_(software_development) // Scrum
+## https://en.wikipedia.org/wiki/Agile_software_development // `Agile`
+## https://en.wikipedia.org/wiki/Scrum_(software_development) // `Scrum`
 
 "30 hour weeks are the golden hours of software development" - Josh
 
@@ -19,20 +19,20 @@
 
 ### Project Management Methodologies
 
-[Waterfall]
+`[Waterfall]`
 (https://en.wikipedia.org/wiki/Waterfall_model)
 
-[Agile:]
+`[Agile:]`
 (https://en.wikipedia.org/wiki/Agile_software_development)
 
-[Scrum:]
+`[Scrum:]`
 (https://www.collab.net/sites/default/files/uploads/CollabNet_scrumreferencecard.pdf)
 
-[Kanban:]
+`[Kanban:]`
 (https://www.atlassian.com/agile/kanban)
 
-[Scrum VS Kanban:]
+`[Scrum VS Kanban:]`
 (https://www.projectmanager.com/blog/kanban-vs-scrum-better)
 
-[Standup:]
+`[Standup:]`
 (https://martinfowler.com/articles/itsNotJustStandingUp.html)

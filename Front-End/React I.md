@@ -1,10 +1,10 @@
-#React I
+# React I
 
 You nest components inside other components.
 
 Front-end Frameworks are made to provide structure and work-flow to a page.
 
-React and Angular are both front-end frameworks.
+`React` and `Angular` are both front-end frameworks.
 
 `package.json` means you should be running npm within that directory `(normally)` to install dependencies.
 
@@ -15,7 +15,7 @@ render(<App />, document.getElementById(’root’));
 ```
 This sets the root in the js file, which can then be called by the HTML.
 
-<div id=”root”></div> this is usually where you connect your react to your HTML - typically you won’t need to set this up, because it will usually be done for you.
+`<div id=”root”></div>` this is usually where you connect your react to your HTML - typically you won’t need to set this up, because it will usually be done for you.
 
 You can name ‘root’ whatever you want, it’s just a placeholder for what is called by the index.js file.
 
@@ -68,7 +68,7 @@ import React from ‘react’;
 class BasicClassComponent extends React.Component { }
 ```
 
-####Both of these work.
+#### Both of these work.
 
 The base component class is provided by React.
 
@@ -103,9 +103,9 @@ You will need to adjust your arrays to become objects — when utilizing local o
 
 ---
 
-####A stateless component does not have a “class”
+#### A stateless component does not have a “class”
 
-##React Life-Cycle
+## React Life-Cycle
 
 Everything inside a component class needs to returned with a render method. — 
 ```JS
