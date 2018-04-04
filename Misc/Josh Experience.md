@@ -1,4 +1,4 @@
-#The Josh Experience
+# The Josh Experience
 
 - Understand Taxes when doing Freelance work.
 - Freelance at night, Salary during the day.
