@@ -1,8 +1,8 @@
-#DOM
+# DOM
 
-###Dom = Document Object Model
+### Dom = Document Object Model
 
-##Tree data structures.
+## Tree data structures.
 
 Each node in the tree is in itself a tree. That means all the children of the root will have the same properties.
 
@@ -31,7 +31,7 @@ The nesting in HTML indicates where you will be in the tree, based on open and c
 
 ---
 
-Why the DOM?
+## Why the DOM?
 
 It’s so you can manipulate things on the page after it’s already loaded. All the event based things are tracked through the DOM.
 
@@ -70,7 +70,7 @@ Smaccs is another popular naming convention. This one is a little more complex. 
 
 ---
 
-getbem.com/naming/
+`getbem.com/naming/`
 
 Elements are always elements of the block, not of each other
 
