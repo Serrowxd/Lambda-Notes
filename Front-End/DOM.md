@@ -66,7 +66,7 @@ An `event` is whenever your page reacts to a users input.
 
 `suitcss.github.io`
 
-Smaccs is another popular naming convention. This one is a little more complex. // smaccs.com
+`Smaccs` is another popular naming convention. This one is a little more complex. // `smaccs.com`
 
 ---
 
