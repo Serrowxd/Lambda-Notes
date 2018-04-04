@@ -1,18 +1,18 @@
-#HTML / CSS
+# HTML / CSS
 
 W3c.org // Writes the compendium for a baseline web browser.
 
 Html5 Doctype is a standard
 
-Codepen.io
+`Codepen.io`
 
 You can set <name> tags, but they are not consistent across browsers.
 
-https://meyerweb.com/eric/tools/css/reset/
+`https://meyerweb.com/eric/tools/css/reset/`
 
-//
+---
 
-#CSS Selectors:
+# CSS Selectors:
 
 Element/Class/ID/Multiple Classes
 
@@ -26,13 +26,13 @@ It should always go Element/Class/ID.
 
 Never use Important unless you absolutely have to. Usually in an emergency.
 
-//
+---
 
-Width:
-Height:
-Border:
-Color:
-Background-color:
+`Width:`
+`Height:`
+`Border:`
+`Color:`
+`Background-color:`
 
 Class weights go from left to right in terms of “box box1” where .box will go and then .box1 will go next.
 
@@ -86,109 +86,111 @@ Position: fixed; // keeps the element fixed to the viewport.
 
 ---
 
-#CONTAINER
+# CONTAINER
 
-Display: flex; // tells the children elements to go left to right, by default. It will also try to fit every child within the width of the parent container, regardless of the defined width of the child.
+`Display: flex;` // tells the children elements to go left to right, by default. It will also try to fit every child within the width of the parent container, regardless of the defined width of the child.
 
-Display: flex-direction; // row/row-reverse/column/column-reverse ; flex defines row by default.
+`Display: flex-direction;` // row/row-reverse/column/column-reverse ; flex defines row by default.
 
-Row-reverse can be used to reverse the order of the children within the container.
+`Row-reverse` can be used to reverse the order of the children within the container.
 
-Column causes the children to stack downwards, where our main axis is up/down and our cross axis is left/right.
+`Column` causes the children to stack downwards, where our main axis is up/down and our cross axis is left/right.
 
-Column-reverse does the same thing as column, but in the other direction.
+`Column-reverse` does the same thing as `column`, but in the other direction.
 
-FLEX ALWAYS GOES ON THE PARENT CONTAINER
+### FLEX ALWAYS GOES ON THE PARENT CONTAINER
 
-Flex-wrap; // causes the children to wrap within the container. Nowrap/wrap/wrap-reverse. It retains the integrity of your flex items regardless of the size. Nowrap is the default for flex-wrap.
+`Flex-wrap;` // causes the children to wrap within the container. Nowrap/wrap/wrap-reverse. It retains the integrity of your flex items regardless of the size. Nowrap is the default for flex-wrap.
 
-Flex-flow; // shorthand for flex-direction and flex-wrap. The default is row nonwrap.
+`Flex-flow;` // shorthand for flex-direction and flex-wrap. The default is row nonwrap.
 
-Flex-flow: column wrap; // wraps the elements while keeping them in a column.
+`Flex-flow: column wrap;` // wraps the elements while keeping them in a column.
 
-Justify-content; // flex-start, flex-end, center, space-between, space-around, space-evenly // will justify content within the container. Flex-start is the default value.
+`Justify-content;` // flex-start, flex-end, center, space-between, space-around, space-evenly // will justify content within the container. Flex-start is the default value.
 
-Box Model is margin padding border content.
+`Box Model` is margin padding border content.
 
-Space-between will listen to child margin.
+`Space-between` will listen to child margin.
 
-Space-around will give equal margins of space around each element.
+`Space-around` will give equal margins of space around each element.
 
-Space-evenly will put space evenly between each element.
+`Space-evenly` will put space evenly between each element.
 
-Align-items = cross axis.
+`Align-items` = cross axis.
 
-Align-items; // flex-start, flex-end, center, baseline, stretch //
+`Align-items;` // flex-start, flex-end, center, baseline, stretch //
 
-Flex-start will align them to the start of the container, the basic level for for align-items.
+`Flex-start` will align them to the start of the container, the basic level for for `align-items`.
 
-Flex-end is the bottom of the axis.
+`Flex-end` is the bottom of the axis.
 
-Center will center the items within the container along the cross axis.
+`Center` will center the items within the container along the cross axis.
 
-Baseline aligns the content based on the bottom of the text within the elements.
+`Baseline` aligns the content based on the bottom of the text within the elements.
 
-Stretch is the default, it will stretch to fill the container.
+`Stretch` is the default, it will stretch to fill the container.
 
-Align-content; // Aligns the flex containers lines within the cross axis. Uses the same settings as Justify Content.
+`Align-content;` // Aligns the flex containers lines within the cross axis. Uses the same settings as Justify Content.
 
 —> main axis, |v| cross axis (downwards). Column reverses this.
 
 
-#CHILDREN
+# CHILDREN
 
-Only go 1 deep when it comes to parents and children for Flexbox.
+### Only go 1 deep when it comes to parents and children for Flexbox.
 
-Order: integer; // controls where the element is positioned within the container. Default is 0.
+`Order:` integer; // controls where the element is positioned within the container. Default is 0.
 
-Flex-grow; // defines the ability for the item to grow if necessary.
+`Flex-grow;` // defines the ability for the item to grow if necessary.
 
-Flex-shrink; // defines the ability for the item to shrink if necessary.
+`Flex-shrink;` // defines the ability for the item to shrink if necessary.
 
-Flex-basis; // defines the default size of an element before the remaining space is distributed. Size is based on the items content.
+`Flex-basis;` // defines the default size of an element before the remaining space is distributed. Size is based on the items content.
 
-Flex; // shorthand for flex-grow, flex-shrink, and flex-basis combined. Grow/shrink/basis in that order.
+`Flex;` // shorthand for flex-grow, flex-shrink, and flex-basis combined. Grow/shrink/basis in that order.
 
-Align-self; // allows the default alignment, or the one specified by align-items, to be overridden for individual flex items. Same settings as align-content.
+`Align-self;` // allows the default alignment, or the one specified by align-items, to be overridden for individual flex items. Same settings as align-content.
 
 
 ---
 
 
-#Responsive Layout:
+# Responsive Layout:
 
-Fixed: Doesn’t move, very rigid.
-Adaptive: Adapts to the viewport and device, then changes on a breakpoint.
-Fluid: 100% based on the viewport but can have strange effects at different sizes.
-Responsive: Fluid + Adaptive = all bases covered from phone to desktop.
+`Fixed:` Doesn’t move, very rigid.
+`Adaptive:` Adapts to the viewport and device, then changes on a breakpoint.
+`Fluid:` 100% based on the viewport but can have strange effects at different sizes.
+`Responsive:` Fluid + Adaptive = all bases covered from phone to desktop.
 
 Always be aware of the different browsers and how they impact your design in a website.
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+`<meta name="viewport" content="width=device-width, initial-scale=1.0">`
 
 Always insert this into your website HTML.  Really really big when it comes to responsive web design.
 
 Min-width will force an element or item to do exactly what you tell it to do, ignoring browser margins.
 
-@media print { … } will target printers. You can introduce styles that remove styles and padding to allow for easier printing.
+`@media print { … }` will target printers. You can introduce styles that remove styles and padding to allow for easier printing.
 
-When using @media you want to nest a selector (.box, header) within to be modified.
+When using `@media` you want to nest a selector (.box, header) within to be modified.
 
+```CSS
 @media (max-width: 850px) {
  .box {
   Background: red;
  }
 }
+```
 
 This is a media breakpoint. You hit the max-width breakpoint and the color will change.
 
-//
+---
 
-With REM 62.5% base HTML text at 1.5rem is 15px exactly.
+With `REM` 62.5% base HTML text at 1.5rem is 15px exactly.
 
-VW is based off the viewport.
+`VW` is based off the viewport.
 
-Project: All pixels should be in Rems.
+`Project:` All pixels should be in Rems.
 
 62.5% with Rems applies to the entire document, and it’s equal to 15 pixels. 62.5% of the default browser setting, or the viewport.
 
@@ -196,9 +198,9 @@ If it’s below 320 pixels, it doesn’t need to be a %. Everything else needs t
 
 300-400 pixels is the sweet spot.
 
-Max-width: 880px; // this constrains the fluidity of the other items.
+`Max-width: 880px;` // this constrains the fluidity of the other items.
 
-Inline block still accounts for div whitespace.
+`Inline block` still accounts for div whitespace.
 
 Divide the child element into the parent element and you will get a percent, move the decimal accordingly.
 
@@ -216,4 +218,4 @@ Always divide by the parent element.
 
 Child will divide by it’s immediate parent.
 
-You can use calc() for exact percentages, but it is not widely supported. Doing it yourself eliminates complexity.
+You can use `calc()` for exact percentages, but it is not widely supported. Doing it yourself eliminates complexity.
