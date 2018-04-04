@@ -277,3 +277,206 @@ server.listen(port, () => console.log('API Running on port 5000')); // listens f
 * Prestyled Components? Styled Components.
 * `npm install styled-components`
 * `injectGlobal` Styles the entire page.
+
+# Day 3
+
+* "I want to see all the orders for a user"
+  - `/api/users/orders`
+* "I want to see all the orders for a specific user"
+  - `/api/users/:id/orders`
+  - `/api/orders?userid=123`
+* "I want to see all payments for an order"
+  - `/api/orders/:id/payments`
+  - `/api/orders/id/payments?year=2018&month=april` = "I want to see them from `?` specified year `&` specified month."
+
+### Go from specific to generic when building endpoints. `Order of Specificity`
+
+```js
+// /api/users/orders
+router.get('/orders', (req, res) => {
+  res.send('inside /api/users/orders');
+});
+```
+
+### This would go over
+
+```js
+router.get('/:id', (req, res) => {
+  const { id } = req.params;
+
+  db
+    .findById(id)
+    // .findBy(userid)
+    .then(users => {
+      res.json(users[0]);
+    })
+    .catch(error => {
+      res.status(500).json(error);
+    });
+});
+```
+
+### Because the second bit of code is more generic. *Waterfall code.*
+### If placed in the opposite order, it will read the `:id` and then pass it to `/orders` and the code will break.
+
+## Fullstack
+* `const cors = require('cors'); // brings in the cors package, npm install cors.`
+* `server.use(cors()); // allows you to connect back-end to front-end.`
+
+### React `index.js`
+```JS
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+// import App from './App';
+import registerServiceWorker from './registerServiceWorker';
+
+import axios from 'axios';
+
+class List extends React.Component {
+  state = {
+    users: [],
+  };
+
+  render() {
+    return(
+      <ul>
+        {this.state.users.map(user =><li key={user.id}>{user.name}</li>)}
+      </ul>
+    );
+  }
+
+      componentDidMount() {
+        axios
+        .get('http://localhost:5000/api/users')
+        .then(response => {
+          this.setState({ users: response.data });
+        })
+        .catch(error => console.log(error));
+  }
+}
+
+ReactDOM.render(<App />, document.getElementById('root'));
+registerServiceWorker();
+
+```
+
+### Node.js `server.js`
+```JS
+const express = require('express'); // brings in the express package, similar to import react.
+// const morgan = require('morgan'); // brings in the morgan package, npm install morgan.
+const helmet = require('helmet'); // brings in the helmet package, npm install helmet.
+const cors = require('cors'); // brings in the cors package, npm install cors.
+
+const db = require('./data/db.js'); // same as import. This in react would look like import db from './data/db.js';
+
+const userRouter = require('./users/userRouter.js'); // userRouter?
+
+const server = express(); // calls express as a function
+
+// custom middleware [m1, m2, mn] -> [request handlers]
+function logger (req, res, next) {
+  // next points to the middleware
+  console.log('body: ', req.body);
+  // req.url = `${req.url}/1`;
+  // res.send('done');
+
+  next();
+}
+
+// middelware
+// server.use(morgan('dev')); // uses the string to format something.
+server.use(helmet()); // uses Helmet to protect the server.
+server.use(express.json()); // exact same thing as bodyParser.
+server.use(logger);
+server.use(cors()); // allows you to connect back-end to front-end.
+
+server.use('/api/users', userRouter);
+
+server.get('/', function (req, res) { // object that represents a request, then a response (req, res).
+  // res.send('Api Running.......'); // sends the server what you have here.
+  // res.send({ api: 'Running...' });
+  res.json({ api: 'Running...' }); // sends it as a .json
+});
+
+server.get('/api/users', (req, res) => { // can also use arrow functions here instead of saying function.
+  // get the data.
+  db // this can all be done in-line as well.
+    .find()
+    .then(users => { // send the data.
+      res.json(users); // by default sends a status code of 200, or OK.
+    })
+    .catch(error => { // send the error if there is one.
+      // handle it.
+      res.status(500).json(error); // sends an error if it exists.
+    });
+});
+
+const port = 5000; // defines port the server will listen to
+server.listen(port, () => console.log('API Running on port 5000')); // listens for traffic on the port defined. () defines a callback function that you can use to put something in the console or other things.
+```
+
+### Node.js `userRouter.js`
+```JS
+const express = require('express');
+
+const router = express.Router();
+
+const db = require('../data/db.js');
+
+// handles routes that start with: /api/users
+
+router.get
+
+router.get('/:id/orders/:orderId', (req, res) => {
+  res.send(`viewing orders with id ${req.params.orderId} for users with id ${req.params.id}`);
+});
+
+// /api/users/orders
+router.get('/orders', (req, res) => {
+  res.send('inside /api/users/orders');
+});
+  
+router.get('/:id', (req, res) => {
+  const { id } = req.params;
+
+  db
+    .findById(id)
+    // .findBy(userid)
+    .then(users => {
+      res.json(users[0]);
+    })
+    .catch(error => {
+      res.status(500).json(error);
+    });
+});
+
+router.post('/', (req, res) => {
+
+});
+
+router.delete('/', (req, res) => {
+
+});
+
+router.put('/', (req, res) => {
+
+});
+
+module.exports = router;
+```
+
+## Misc Notes
+### Luis's Terminal
+```shell
+export PS1="[\w] > "
+alias brewup="brew update && brew upgrade -y && brew doctor"
+alias commit="git add . && git commit -a -m "
+alias crapp="create-react-app "
+alias ll="ls -lG"
+alias push="git push"
+alias reload="source ~/.bash_profile"
+alias remind="cat ~/.bash_profile"
+alias startmc="~/Minecraft/spigot/start.command"
+alias ya="yarn add "
+```

@@ -71,5 +71,3 @@ An Action is an Object.
 `Action Creator`: Function that returns an action object.
 
 `Component` - dispatches an action -> Reducers - update -> Application State Tree (store)
-
-
