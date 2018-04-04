@@ -1,4 +1,4 @@
-#Bootstrap
+# Bootstrap
 
 Boostrap is a UI Framework. It’s not react, it’s not javascript. It’s just front-end UI.
 
@@ -12,7 +12,7 @@ JQuery first, Boostrap second. Always Always Always Always.
 
 --
 
-#Bootstrap II
+# Bootstrap II
 
 Cross-browser Forms blow up - Firefox, Safari, Chrome all look different.
 
