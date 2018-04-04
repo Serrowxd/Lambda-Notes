@@ -62,9 +62,9 @@ An `event` is whenever your page reacts to a users input.
 
 ---
 
-Suit CSS — also what the WoW Website was built on // this is a naming convention.
+`Suit CSS` — also what the WoW Website was built on // this is a naming convention.
 
-suitcss.github.io
+`suitcss.github.io`
 
 Smaccs is another popular naming convention. This one is a little more complex. // smaccs.com
 
