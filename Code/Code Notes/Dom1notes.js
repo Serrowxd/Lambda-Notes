@@ -4,9 +4,9 @@
 
 const array = [["ivan", 29], ["daniel", 34], ["kayla", 29]];
 const object = {
-    ivan: 29,
-    daniel: 34,
-    kayla: 29
+  ivan: 29,
+  daniel: 34,
+  kayla: 29
 };
 
 // function findKalya (array) {
@@ -30,14 +30,14 @@ const object = {
 // fasetest retrieval
 
 class Tree {
-    constructor(value) {
-        this.value = value;
-        this.children = [];
-    }
+  constructor(value) {
+    this.value = value;
+    this.children = [];
+  }
 
-    addChild(value) {
-        this. children.push(new Tree(value));
-    }
+  addChild(value) {
+    this.children.push(new Tree(value));
+  }
 }
 
 // created a new tree and added 3 children.
@@ -51,4 +51,3 @@ myTree.children[2].addChild(1);
 myTree.children[2].addChild(2);
 
 console.log(myTree);
-

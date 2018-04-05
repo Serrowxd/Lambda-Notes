@@ -1,6 +1,6 @@
 function stringCompression(str) {
   let currentChar = null;
-  let compressedStr = '';
+  let compressedStr = "";
   let charCount = 1;
   for (let i = 0; i <= str.length; i++) {
     if (str[i] === currentChar) charCount++;

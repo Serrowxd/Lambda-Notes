@@ -23,6 +23,7 @@ Window in the console is the global object that allows you to run JavaScript in 
 `Object.prototype` gives us more objects
 
 ---
+
 ```JS
 Const myPersonObject = {
  FirstName: ‘Fred’,
@@ -41,6 +42,7 @@ You can also add to the object with dot notation.
 This adds the age property.
 
 ---
+
 ```JS
 const meObject = {
   firstName: 'Kevin',
@@ -61,6 +63,7 @@ You can also add objects to your object.
 `Pet: {name: ‘Boobs’, type: ‘Cat’}`, can go within an object and you can add a “key value pair” to it as well.
 
 ---
+
 ```JS
 Const myKeys = object.keys(meObject);
 Console.log(myKeys);
@@ -71,6 +74,7 @@ This gives you back an array of your object keys, aka firstName, lastName, thing
 This works for:
 
 `Keys()`, `values()`, `entries();`
+
 ```JS
 Const myValues = object.values(myObject);
 Console.log(myValues);
@@ -79,6 +83,7 @@ Console.log(myValues);
 This gives back the values of the object. So things like Kevin, Jolley, Pizza.
 
 ---
+
 ```JS
 const meObject = {
   firstName: "Kevin",
@@ -117,6 +122,7 @@ So [1, 2, 3, 4] would be 0, 1, 2, 3 for the values within the array and the keys
 This should return true if the (object) is an array.
 
 ---
+
 ```JS
 Const hogwarts = [’Harry’, ‘Hermoine’, ‘Ron’];
 
@@ -136,6 +142,7 @@ Push, Pop, Shift, Unshift, Slice, Splice
 `.unshift` would add an item to the front of the array
 
 If you wanted to capture the value that comes off the end of the array, you would use
+
 ```JS
 Const = myValue(hogwarts.pop);
 Return myValue();
@@ -150,6 +157,7 @@ This would take the last item off the array and then log it.
 Callbacks are functions that are passed around to other functions so they can be used multiple times over.
 
 The first argument these function receive is a callback function, and it’s usually an item in the array.
+
 ```JS
 const map = (elements, cb) => {
   const newArray = [];
@@ -169,6 +177,7 @@ If you start a .reduce function, you must always define a final variable. It wil
 Quokka — Worthwhile to install.
 
 ## Closure:
+
 ```JS
 Const myAmazingVar = ‘KITTY’;
  Function exposeKitty() {
@@ -184,7 +193,6 @@ ExposeKitty();
  }
 Console.log()
 }
-
 ```
 
 Scope will always go up the chain in a reverse cascade. It will check the highest item in the nest based on scope.
@@ -196,11 +204,13 @@ Pythontutor.com
 ---
 
 ## Template Strings
+
 ```JS
 Console.log(’Hello ‘ + name);
 ```
 
 Is the same as
+
 ```JS
 Console.log(`Hello ${name}`);
 ```
@@ -212,13 +222,13 @@ This is a new way to represent strings.
 ---
 
 ## Fat Arrow Function
+
 ```JS
 Const function = parameter => return;
 
 Const sayHi = greeting => greeting;
 
 [1, 2, 3].forEach(item => console.log(item));
-
 ```
 
 This loops over the array and returns each item in the array.
@@ -231,7 +241,6 @@ This loops over the array and returns each item in the array.
 
 Same thing as the fatarrow function above.
 
-
 ## Recursion
 
 Another way to represent a loop.
@@ -240,12 +249,9 @@ Using a function to achieve a looping program, similar to a for loop or a while 
 
 Recursion is a function that calls itself until it doesn’t.
 
-
 Flatten condenses a nested array
 
-
 ---
-
 
 The `this` keyword.
 
@@ -267,6 +273,7 @@ sayName("D'Artagan");
 ## New Binding
 
 Code in a capital case is a constructor function.
+
 ```JS
 Function CordialPerson() {
 

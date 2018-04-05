@@ -8,4 +8,4 @@ function longestString(arr) {
   return long;
 }
 
-longestString(['hello', 'goodbye', 'abc']);
+longestString(["hello", "goodbye", "abc"]);

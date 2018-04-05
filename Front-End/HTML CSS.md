@@ -44,7 +44,7 @@ Box Model is t r b l for padding, or clockwise for your top right bottom and lef
 
 Always zero value while padding/margining or you will short value it. 20px 30px 0 60px // 20px 30px 60px will give 20px top 30px left and right and 60px bottom, 20px 30px will be top bottom and left right.
 
-*{} will select every element and apply it to the whole thing.
+\*{} will select every element and apply it to the whole thing.
 
 <nav> is an element name and can be referenced in css as nav {}
 
@@ -134,7 +134,6 @@ Every property for every element comes as Static in it’s position.
 
 —> main axis, |v| cross axis (downwards). Column reverses this.
 
-
 # CHILDREN
 
 ### Only go 1 deep when it comes to parents and children for Flexbox.
@@ -151,9 +150,7 @@ Every property for every element comes as Static in it’s position.
 
 `Align-self;` // allows the default alignment, or the one specified by align-items, to be overridden for individual flex items. Same settings as align-content.
 
-
 ---
-
 
 # Responsive Layout:
 
@@ -166,7 +163,7 @@ Always be aware of the different browsers and how they impact your design in a w
 
 `<meta name="viewport" content="width=device-width, initial-scale=1.0">`
 
-Always insert this into your website HTML.  Really really big when it comes to responsive web design.
+Always insert this into your website HTML. Really really big when it comes to responsive web design.
 
 Min-width will force an element or item to do exactly what you tell it to do, ignoring browser margins.
 

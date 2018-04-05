@@ -1,12 +1,12 @@
 # Project Management Notes
 
-- Waterfall Model is rigid and used by people who are not sure what they are doing.
-- Agile Model is better suited for software developement.
-- Skrum is cicular, where you have a set time period of checks and balances.
-- Kanban is priority based.
-
+* Waterfall Model is rigid and used by people who are not sure what they are doing.
+* Agile Model is better suited for software developement.
+* Skrum is cicular, where you have a set time period of checks and balances.
+* Kanban is priority based.
 
 ## https://en.wikipedia.org/wiki/Agile_software_development // `Agile`
+
 ## https://en.wikipedia.org/wiki/Scrum_(software_development) // `Scrum`
 
 "30 hour weeks are the golden hours of software development" - Josh

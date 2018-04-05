@@ -8,7 +8,7 @@ You never modify bootstrap, you just override it with specificity.
 
 JQuery first, Boostrap second. Always Always Always Always.
 
-	Bootstrap uses a series of containers, rows, and columns to layout and align content.
+    Bootstrap uses a series of containers, rows, and columns to layout and align content.
 
 --
 
@@ -53,10 +53,8 @@ Mt-5 is a top margin of 5 pixels
 
 So it would look like
 
-`<div class=”row (```) mt-5 mb-3”>` that gives 5 points of margin to the top and 3 points of margin to the bottom of the div.
+` <div class=”row (```) mt-5 mb-3”> ` that gives 5 points of margin to the top and 3 points of margin to the bottom of the div.
 
 You cannot use rem or em, it’s always in pixels.
 
 It doesn’t matter where you put it, but you want your most specific adjustments to be the furthest left.
-
-

@@ -5,11 +5,13 @@
 * It always helps to give your project an author in your package.json.
 
 ### Helpful package.json
+
 ```json
  "scripts": {
     "start": "nodemon server.js"
   },
 ```
+
 * You don't need nodemon as a global dependency, and you don't need it when you publish the project.
 
 `npm i (name of package) -D` - this installs the package as a dev dependency.
@@ -19,57 +21,62 @@
 ---
 
 ## HTTP (Theory)
-  * Methods
-    - POST, GET, PUT, DELETE
-  * Status Codes
-    - 200 (OK), 201 (CREATED), 400 (BAD REQUEST), 404 (NOT FOUND), 500 (SERVER ERROR)
-    - 200 - 299: SUCCESS
-    - 300 - 399: REDIRECTS
-    - 400 - 499: USER/CLIENT ERROR
-      + 401: Wrong Password, you can fix it. INVALID
-      + 403: Right Password, but you cannot see it. FORBIDDEN
-      + 418: (Look Up)
-    - 500 - 599: SERVER ERROR
-      + 503: Too much coming in. SERVER OVERLOAD
-  
-    `If you return something within the 200's while working with Angular, it won't return error code. However in the 400's, it will.`
+
+* Methods
+  * POST, GET, PUT, DELETE
+* Status Codes
+
+  * 200 (OK), 201 (CREATED), 400 (BAD REQUEST), 404 (NOT FOUND), 500 (SERVER ERROR)
+  * 200 - 299: SUCCESS
+  * 300 - 399: REDIRECTS
+  * 400 - 499: USER/CLIENT ERROR
+    * 401: Wrong Password, you can fix it. INVALID
+    * 403: Right Password, but you cannot see it. FORBIDDEN
+    * 418: (Look Up)
+  * 500 - 599: SERVER ERROR
+    * 503: Too much coming in. SERVER OVERLOAD
+
+  `If you return something within the 200's while working with Angular, it won't return error code. However in the 400's, it will.`
 
 ## REST (Theory)
-  * REpresentational State Transfer
-    - *Restful API*
-    - *API* = *Application Programming Interface*
-  * Resource Thinking
-    - *A `resource` is any piece of data that your server is handeling.*
-    - *Users can be considered resources.*
-  * Endpoint Design
-    - `/api/user` - single endpoint per resource.
+
+* REpresentational State Transfer
+  * _Restful API_
+  * _API_ = _Application Programming Interface_
+* Resource Thinking
+  * _A `resource` is any piece of data that your server is handeling._
+  * _Users can be considered resources._
+* Endpoint Design
+  * `/api/user` - single endpoint per resource.
 
 ## Node (Theory and Practice)
-  * Advantages
-    - Node is a way to run JavaScript outside of the browser.
-    - Node is a JavaScript run-time environment (like a compiler).
-    - No context switching.
-    - Same paradigm as JavaScript.
-  * Disadvantages
-    - Single Threaded - an advantage, but still a disadvantage.
+
+* Advantages
+  * Node is a way to run JavaScript outside of the browser.
+  * Node is a JavaScript run-time environment (like a compiler).
+  * No context switching.
+  * Same paradigm as JavaScript.
+* Disadvantages
+  * Single Threaded - an advantage, but still a disadvantage.
 
 ## Express (Theory and Practice)
-  * Advantages
-    - minimalistic
-    - extendible
-  * Disadvantages
-    - minimlaistic
-  * Core Parts
-    - Routing - A way to handle requests and execute code.
-    - Middleware - Extends the functionality of Express applications.
-    - Sub-Applications - Assembles components.
+
+* Advantages
+  * minimalistic
+  * extendible
+* Disadvantages
+  * minimlaistic
+* Core Parts
+  * Routing - A way to handle requests and execute code.
+  * Middleware - Extends the functionality of Express applications.
+  * Sub-Applications - Assembles components.
 
 ## Code
 
 ### This is placed within a server.js file.
 
-- `npm install express`
-- `npm install nodemon`
+* `npm install express`
+* `npm install nodemon`
 
 ```js
 const express = require('express'); // brings in the express package, similar to import react.
@@ -77,20 +84,24 @@ const db = require('./data/db.js'); // same as import. This in react would look 
 
 const server = express(); // calls express as a function
 
-server.get('/', function (req, res) { // object that represents a request, then a response (req, res).
+server.get('/', function(req, res) {
+  // object that represents a request, then a response (req, res).
   // res.send('Api Running.......'); // sends the server what you have here.
   // res.send({ api: 'Running...' });
   res.json({ api: 'Running...' }); // sends it as a .json
 });
 
-server.get('/api/users', (req, res) => { // can also use arrow functions here instead of saying function.
+server.get('/api/users', (req, res) => {
+  // can also use arrow functions here instead of saying function.
   // get the data.
   db // this can all be done in-line as well.
     .find()
-    .then(users => { // send the data.
+    .then(users => {
+      // send the data.
       res.json(users); // by default sends a status code of 200, or OK.
     })
-    .catch(error => { // send the error if there is one.
+    .catch(error => {
+      // send the error if there is one.
       // handle it.
       res.status(500).json(error); // sends an error if it exists.
     });
@@ -101,7 +112,7 @@ server.get('/api/users/:id', (req, res) => {
 
   db
     .findById(id) // finds it by the ID, aka the paramater defined in db.js - `findById`
-    .then(users => { 
+    .then(users => {
       res.json(users[0]); // grabs the first user in the array, rather than the whole array.
     })
     .catch(error => {
@@ -114,19 +125,20 @@ server.listen(port, () => console.log('API Running on port 5000')); // listens f
 ```
 
 ## API
-  * An API in this context is a server software that publishes a set of *endpoints* that clients can use to manage *resources*.
 
+* An API in this context is a server software that publishes a set of _endpoints_ that clients can use to manage _resources_.
 
 # Day 2
 
 ## Middelware:
 
-  ### [Client] - *makes* - (request) - [Middleware Stack] - [Request Handler Functions]
-  `Middleware sits in the middle and checks every request that comes though.`
+### [Client] - _makes_ - (request) - [Middleware Stack] - [Request Handler Functions]
 
-  * Express - `npm install express` - Server Utility
-  * Morgan - `npm install morgan` - Server Information
-  * Helmet - `npm install helmet` - Server Protection
+`Middleware sits in the middle and checks every request that comes though.`
+
+* Express - `npm install express` - Server Utility
+* Morgan - `npm install morgan` - Server Information
+* Helmet - `npm install helmet` - Server Protection
 
 ```JS
 const express = require('express'); // brings in the express package, similar to import react.
@@ -180,7 +192,7 @@ server.get('/api/users/:id', (req, res) => {
 
   db
     .findById(id) // finds it by the ID, aka the paramater defined in db.js - `findById`
-    .then(users => { 
+    .then(users => {
       res.json(users[0]); // grabs the first user in the array, rather than the whole array.
     })
     .catch(error => {
@@ -252,28 +264,32 @@ server.listen(port, () => console.log('API Running on port 5000')); // listens f
 ```
 
 ## Rest
-  *Principles and constraints. `Recommendations`, not `law`.*
 
-  ### Constraints
-  
-  * Client-server architecture.
-  * Stateless Architecture: Requests are not related to each other, they stand on their own.
-  * Cacheable
-    - GET, PUT, DELETE should be *idempotent*.
-  * Layered System.
-  * Code on Demand.
-  * Uniform Interfaces.
+_Principles and constraints. `Recommendations`, not `law`._
+
+### Constraints
+
+* Client-server architecture.
+* Stateless Architecture: Requests are not related to each other, they stand on their own.
+* Cacheable
+  * GET, PUT, DELETE should be _idempotent_.
+* Layered System.
+* Code on Demand.
+* Uniform Interfaces.
 
 ## Misc Notes
+
 * `cors` is used to connect your databases.
 * `server.use(cors());`
 * Connected with `Axios`.
+
 ```JS
   getPosts()
     axios.get(localhost:500/api/posts)
     .then(response => this.setState({ posts: response.data }))
     .catch(error => console.error( 'Server Error: Error' ))
 ```
+
 * Prestyled Components? Styled Components.
 * `npm install styled-components`
 * `injectGlobal` Styles the entire page.
@@ -281,13 +297,13 @@ server.listen(port, () => console.log('API Running on port 5000')); // listens f
 # Day 3
 
 * "I want to see all the orders for a user"
-  - `/api/users/orders`
+  * `/api/users/orders`
 * "I want to see all the orders for a specific user"
-  - `/api/users/:id/orders`
-  - `/api/orders?userid=123`
+  * `/api/users/:id/orders`
+  * `/api/orders?userid=123`
 * "I want to see all payments for an order"
-  - `/api/orders/:id/payments`
-  - `/api/orders/id/payments?year=2018&month=april` = "I want to see them from `?` specified year `&` specified month."
+  * `/api/orders/:id/payments`
+  * `/api/orders/id/payments?year=2018&month=april` = "I want to see them from `?` specified year `&` specified month."
 
 ### Go from specific to generic when building endpoints. `Order of Specificity`
 
@@ -316,14 +332,17 @@ router.get('/:id', (req, res) => {
 });
 ```
 
-### Because the second bit of code is more generic. *Waterfall code.*
+### Because the second bit of code is more generic. _Waterfall code._
+
 ### If placed in the opposite order, it will read the `:id` and then pass it to `/orders` and the code will break.
 
 ## Fullstack
+
 * `const cors = require('cors'); // brings in the cors package, npm install cors.`
 * `server.use(cors()); // allows you to connect back-end to front-end.`
 
 ### React `index.js`
+
 ```JS
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -358,10 +377,10 @@ class List extends React.Component {
 
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
-
 ```
 
 ### Node.js `server.js`
+
 ```JS
 const express = require('express'); // brings in the express package, similar to import react.
 // const morgan = require('morgan'); // brings in the morgan package, npm install morgan.
@@ -417,6 +436,7 @@ server.listen(port, () => console.log('API Running on port 5000')); // listens f
 ```
 
 ### Node.js `userRouter.js`
+
 ```JS
 const express = require('express');
 
@@ -436,7 +456,7 @@ router.get('/:id/orders/:orderId', (req, res) => {
 router.get('/orders', (req, res) => {
   res.send('inside /api/users/orders');
 });
-  
+
 router.get('/:id', (req, res) => {
   const { id } = req.params;
 
@@ -467,7 +487,9 @@ module.exports = router;
 ```
 
 ## Misc Notes
+
 ### Luis's Terminal
+
 ```shell
 export PS1="[\w] > "
 alias brewup="brew update && brew upgrade -y && brew doctor"
@@ -480,3 +502,5 @@ alias remind="cat ~/.bash_profile"
 alias startmc="~/Minecraft/spigot/start.command"
 alias ya="yarn add "
 ```
+
+# Day 4

@@ -1,11 +1,11 @@
 function reverseString(str) {
-  let strReversed = '';
-  let arrayFromString = str.split('');
+  let strReversed = "";
+  let arrayFromString = str.split("");
 
   while (arrayFromString.length) {
-  strReversed += arrayFromString.pop();
+    strReversed += arrayFromString.pop();
   }
-return strReversed;
+  return strReversed;
 }
 
 // while loop will only run while the internal value is true.

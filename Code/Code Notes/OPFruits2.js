@@ -9,12 +9,12 @@ function Fruit(attrs) {
   this.calories = attrs.calories;
 }
 
-Fruit.prototype.shipped = function (destination) {
+Fruit.prototype.shipped = function(destination) {
   console.log(`Shipping ${this.name} to ${destination}`);
 };
 
-Fruit.prototype.calculateCals = function () {
-  console.log(`Calories in ${this.name} are ${this.calories * .45}`);
+Fruit.prototype.calculateCals = function() {
+  console.log(`Calories in ${this.name} are ${this.calories * 0.45}`);
 };
 
 // ############################# BANANA #############################
@@ -26,11 +26,11 @@ function Banana(bananaAttrs) {
 
 Banana.prototype = Object.create(Fruit.prototype);
 
-Banana.prototype.checkIfMonkeysLikeIt = function () {
+Banana.prototype.checkIfMonkeysLikeIt = function() {
   if (this.doMonkeysLikeIt) {
-    return 'Yes! Monkeys love Bananas';
+    return "Yes! Monkeys love Bananas";
   } else {
-    return 'Nope! Monkeys are no longer into bananas.';
+    return "Nope! Monkeys are no longer into bananas.";
   }
 };
 
@@ -43,7 +43,7 @@ function Kiwi(kiwiAttrs) {
 
 Kiwi.prototype = Object.create(Fruit.prototype);
 
-Kiwi.prototype.checkIfFuzzy = function () {
+Kiwi.prototype.checkIfFuzzy = function() {
   if (this.isFuzzy) {
     return true;
   } else {
@@ -55,23 +55,23 @@ Kiwi.prototype.checkIfFuzzy = function () {
 
 const newBanana = new Banana({
   doMonkeysLikeIt: true,
-  type: 'Tree',
-  name: 'Banana',
+  type: "Tree",
+  name: "Banana",
   isRipe: false,
   calories: 0.1
 });
 
 const newKiwi = new Kiwi({
   isFuzzy: true,
-  type: 'Tree',
-  name: 'Kiwi',
+  type: "Tree",
+  name: "Kiwi",
   isRipe: false,
   calories: 0.7
 });
 
 console.log(newBanana.checkIfMonkeysLikeIt());
 newBanana.calculateCals();
-newBanana.shipped('Alaska');
+newBanana.shipped("Alaska");
 newKiwi.calculateCals();
-newKiwi.shipped('Dominican Republic');
+newKiwi.shipped("Dominican Republic");
 console.log(newKiwi.checkIfFuzzy());

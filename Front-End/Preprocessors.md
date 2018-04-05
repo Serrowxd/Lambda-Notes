@@ -52,7 +52,7 @@ This changes the color of the nested item. It goes below the element you’re ad
 
 So like
 
-``` CSS
+```CSS
 .parent {
  Color: purple;
 
@@ -76,6 +76,7 @@ The media queries will always bubble to the immediate parent, so you will need t
 ---
 
 ## Media Quires can also be set in variables.
+
 ```CSS
 @phone - “(max-width: 500px)”;
 
@@ -83,6 +84,7 @@ The media queries will always bubble to the immediate parent, so you will need t
 Background: black;
 }
 ```
+
 This sets the media width and breakpoint in one go.
 
 //
@@ -116,6 +118,3 @@ Variables > Mix ins > general styles > Components > Pages
 `Waterfall order.`
 
 Mix-ins must be applied the the UL tag not the a tag.
-
-
-

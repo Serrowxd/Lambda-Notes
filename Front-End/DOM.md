@@ -9,6 +9,7 @@ Each node in the tree is in itself a tree. That means all the children of the ro
 Nested Objects essentially.
 
 Adding children to the tree will go like this
+
 ```JS
 const myTree = new Tree(1);
 myTree.addChild(1);
@@ -36,16 +37,19 @@ The nesting in HTML indicates where you will be in the tree, based on open and c
 It’s so you can manipulate things on the page after it’s already loaded. All the event based things are tracked through the DOM.
 
 The root of the DOM in Console is “document”
+
 ```JS
 document.getElementsByClassName("nav-bar");
 ```
 
 This brings back an HTML collection that has all the elements that are nested in document that have the class name, or “nav-bar”.
+
 ```JS
 let navBar = document.getElementsByClassName("nav-bar")[0];
 ```
 
 This stores a reference to the nav bar in the console.
+
 ```JS
 navBar.classList brings back a DOMTokenList.
 

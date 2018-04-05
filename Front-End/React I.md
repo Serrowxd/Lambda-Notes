@@ -8,11 +8,12 @@ Front-end Frameworks are made to provide structure and work-flow to a page.
 
 `package.json` means you should be running npm within that directory `(normally)` to install dependencies.
 
-
 Under index.js
+
 ```JS
 render(<App />, document.getElementById(’root’));
 ```
+
 This sets the root in the js file, which can then be called by the HTML.
 
 `<div id=”root”></div>` this is usually where you connect your react to your HTML - typically you won’t need to set this up, because it will usually be done for you.
@@ -20,12 +21,15 @@ This sets the root in the js file, which can then be called by the HTML.
 You can name ‘root’ whatever you want, it’s just a placeholder for what is called by the index.js file.
 
 A react component is anything that is rendered onto a page.
+
 ```js
 import React from ‘react’;
 ```
+
 this will import your react information at the top of the file when using a react file.
 
 You call a component with `<ComponentName />`
+
 ```js
 const BasicComponent = () => <div>Text</div>;
 ```
@@ -38,15 +42,15 @@ This can be called with
 
 ```js
 const App = () => (
-<div style={styles}>
-<BasicComponent />
-<Hello name="CodeSandbox" />
-<h2>Start editing to see some magic happen {"\u2728"}</h2>
-</div>
+  <div style={styles}>
+    <BasicComponent />
+    <Hello name="CodeSandbox" />
+    <h2>Start editing to see some magic happen {"\u2728"}</h2>
+  </div>
 );
 ```
 
-This is also a component, where it’s an arrow function that adds divs in the index file. You’re basically writing HTML inside react components. 
+This is also a component, where it’s an arrow function that adds divs in the index file. You’re basically writing HTML inside react components.
 
 BasicComponent changes its position based on it’s location within the div styles div.
 
@@ -55,15 +59,19 @@ There always needs to be a root level div, and you nest things inside that div. 
 ```JS
 import React, { Component } from ‘react’;
 ```
+
 this is destructoring
+
 ```JS
 class BasicClassComponent extends Component { }
 ```
 
 You can also use
+
 ```JS
 import React from ‘react’;
 ```
+
 ```JS
 class BasicClassComponent extends React.Component { }
 ```
@@ -79,6 +87,7 @@ A single page application loads once and then doesn’t have to reload. It gets 
 ---
 
 You can apply props or styles with
+
 ```JS
 this.props.object
 this.state.objectd
@@ -107,7 +116,8 @@ You will need to adjust your arrays to become objects — when utilizing local o
 
 ## React Life-Cycle
 
-Everything inside a component class needs to returned with a render method. — 
+Everything inside a component class needs to returned with a render method. —
+
 ```JS
 render() { return (content); }
 ```
@@ -117,9 +127,11 @@ With React, you future proof your career. It’s going to be around for a very l
 ```JS
 {this.state.chars.map(char => <div> {char} </div>) }
 ```
+
 implicit return, where map returns a new array of characters.
 
 Div can be changed to li if within an <ul> tag.
+
 ```JS
 <ul>
   {this.state.chars.map((char, index) => (
@@ -138,7 +150,8 @@ Only implement `PropTypes` on levels where props are required, you don’t want 
 
 Any global dependencies you want to organize separately at the top, local you’ll want to put together below that.
 
-When you import proptypes, you import as `PropTypes`, then you utilize it as — 
+When you import proptypes, you import as `PropTypes`, then you utilize it as —
+
 ```JS
 PeopleList.propTypes = {
   people = PropTypes.bool
@@ -158,9 +171,11 @@ PeopleList.propTypes = {
 
 // This makes an array required.
 ```
- It’s more or less a checklist that the code does for itself rather than using a `console.log();`
+
+It’s more or less a checklist that the code does for itself rather than using a `console.log();`
 
 ---
+
 ```JS
 PersonCard.propTypes = {
   person: PropTypes.object,

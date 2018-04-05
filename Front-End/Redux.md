@@ -11,11 +11,9 @@ The UI is going to be a product of the Data, because we are using React.
 
 `data = { isLocked: true, isOpen: true }` // this is the shape of the data.
 
-
 Component is essentially a function that takes some data, then returns a piece of the UI. This is essentially what react or a react component does.
 
 Component = (optionalData) => UI
-
 
 Redux thinks in transitions.
 FSM (Finite State Machine) - think about your states first.
@@ -34,6 +32,7 @@ Redux is best for large scale applications, or when you’re drilling components
 Finite State Machine and Pub/Sub patterns // Publisher/Subscriber
 
 # Redux:
+
 * Store
   * Initial State
   * Get State
@@ -41,7 +40,7 @@ Finite State Machine and Pub/Sub patterns // Publisher/Subscriber
   * Notify Listeners/Subscribers of State Changes
 * Actions and Action Creators
 * Reducers
-React Bindings for Redux.
+  React Bindings for Redux.
 
 ---
 

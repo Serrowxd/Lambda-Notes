@@ -1,6 +1,6 @@
 function reverseCase(str) {
   //create a new string
-  let newStr = '';
+  let newStr = "";
   let i = 0;
   //loop over the old string
   while (i < str.length) {
@@ -8,8 +8,7 @@ function reverseCase(str) {
     if (n == n.toUpperCase()) {
       //set lowercase
       n = n.toLowerCase();
-    }
-    else {
+    } else {
       //set uppercase
       n = n.toUpperCase();
     }
@@ -20,4 +19,4 @@ function reverseCase(str) {
   return newStr;
 }
 
-reverseCase('HelloWorld');
+reverseCase("HelloWorld");
