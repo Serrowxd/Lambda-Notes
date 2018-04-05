@@ -504,3 +504,80 @@ alias ya="yarn add "
 ```
 
 # Day 4
+
+* Node runs in a process.
+
+```js
+const port = proces.env.PORT || 5000;
+server.listen(port, () => console.log('API Running on port 5000'));
+```
+
+* `.PORT` will give you the exact path when hosting from a web server.
+* `5000` will be used during developement, during production the port will be given by the hosting server.
+
+## API File
+
+```js
+let config = {
+  env: process.env,
+  port: process.env.port || 5000, // environment.port
+};
+
+module.exports = config;
+```
+
+### Then under server.js
+
+```js
+const config = require('.api/config.js');
+
+//
+
+server.listen(config.port, () =>
+  console.log('APIE Running on port $(config.port)));
+```
+
+* Dynamic Port
+* Make sure you `ignore` your config files in `git.ignore`.
+
+```md
+(Git Ignore)
+
+# secrets
+
+api/secrets.js
+```
+
+### Unspoken Industry Standard for Production
+
+```js
+const _ = require('lodash');
+
+let config = {
+  env: process.env.NODE_ENV || 'developement', // by default, your environment will always be developement, unless otherwise defined.
+  port: process.env.PORT || 5000,
+  secrets: {
+    password: 'password goes here',
+    database: 'db name goes here',
+  },
+};
+
+// const envConfig = require('./developement.js');
+const envConfig = require(`./${config.env}.js`); // this will read the 'developement', or evironment set.
+
+// module.exports = { ...config, ...envConfig }; // ...config will merge everything from the file. Similar to `.assign`.
+
+//OR
+
+module.exports = _.merge(config, envConfig); // npm install lodash - this will grab everything it needs to merge.
+```
+
+### developement.js
+
+```js
+module.exports = {
+  database: 'lambda.sql3', // the database you are accessing.
+};
+```
+
+## **MAKE SURE ALL YOUR SECRETS ARE IGNORED BEFORE YOU COMMIT. DOUBLE CHECK. VERY IMPORTANT**

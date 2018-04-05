@@ -49,13 +49,13 @@
 ## Server Code
 
 ```js
-const express = require("express"); // Imports express
+const express = require('express'); // Imports express
 
 const server = express(); // When you require express, it gives back a function. This is where you call it. It gives you a server object that you can use to start handeling requests.
 
-server.get("/", (req, res) => {
+server.get('/', (req, res) => {
   // when the server recieves a HTTP `GET` request to '/', execute callback function. REQ = Request, RES = Response.
-  res.send("Hello!");
+  res.send('Hello!');
 });
 
 server.listen(3000);
