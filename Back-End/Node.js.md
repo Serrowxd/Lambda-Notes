@@ -581,3 +581,154 @@ module.exports = {
 ```
 
 ## **MAKE SURE ALL YOUR SECRETS ARE IGNORED BEFORE YOU COMMIT. DOUBLE CHECK. VERY IMPORTANT**
+
+# Final Code
+
+## Server.js
+
+```js
+// Server Imports
+const express = require('express');
+
+const helmet = require('helmet');
+const cors = require('cors');
+
+// Routes
+const usersRouter = require('./data/Routers/users.js');
+const postsRouter = require('./data/Routers/post.js');
+const tagsRouter = require('./data/Routers/tag.js');
+
+// Server
+const server = express();
+
+// Logger
+const logger = (req, res, next) => {
+  console.log('d-(OvO")z looks correct to me', req.body);
+
+  next();
+};
+
+// Middleware
+server.use(express.json());
+server.use(logger);
+server.use(helmet());
+server.use(cors());
+
+// Server Code
+server.get('/', (req, res) => {
+  // API Check
+  res.json({ api: 'Running..' });
+});
+
+// Routes
+server.use('/api/users', usersRouter);
+server.use('/api/posts', postsRouter);
+server.use('/api/tags', tagsRouter);
+
+// Port
+const port = 5000;
+server.listen(port, () => console.log('API Running on port 5000'));
+```
+
+## Package.json
+
+```JSON
+{
+  "name": "node-blog",
+  "version": "1.0.0",
+  "description": "* Building RESTful APIs.\r * Performing CRUD Operations on Multiple Resources.\r * Configuring CORS.\r * Writing Custom Middleware.\r * Using Express Routers to Modularize Application.",
+  "main": "knexfile.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Serrowxd/Node-Blog.git"
+  },
+  "keywords": [],
+  "author": "Kevin Jolley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Serrowxd/Node-Blog/issues"
+  },
+  "homepage": "https://github.com/Serrowxd/Node-Blog#readme",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "helmet": "^3.12.0",
+    "knex": "^0.14.4",
+    "nodemon": "^1.17.3",
+    "sqlite3": "^4.0.0"
+  }
+}
+```
+
+## Users.js
+
+```JS
+const express = require('express');
+const router = express.Router();
+
+const db = require('../helpers/userDb.js');
+
+// Server
+router.get('/', (req, res) => {
+  db
+    .get()
+    .then(users => {
+      res.json(users);
+    })
+    .catch(error => {
+      res.status(500).json(error);
+    });
+});
+
+module.exports = router;
+```
+
+## Posts.js
+
+```JS
+const express = require('express');
+const router = express.Router();
+
+const db = require('../helpers/postDb.js');
+
+// Server
+router.get('/', (req, res) => {
+  db
+    .get()
+    .then(posts => {
+      res.json(posts);
+    })
+    .catch(error => {
+      res.status(500).json(error);
+    });
+});
+
+module.exports = router;
+```
+
+## Tags.js
+
+```JS
+const express = require('express');
+const router = express.Router();
+
+const db = require('../helpers/tagDb.js');
+
+// Server
+router.get('/', (req, res) => {
+  db
+    .get()
+    .then(tags => {
+      res.json(tags);
+    })
+    .catch(error => {
+      res.status(500).json(error);
+    });
+});
+
+module.exports = router;
+```
