@@ -54,3 +54,9 @@
       * Fields
 
 # Day 2
+
+* `One to One`: Person has one spouse, user has only one profile, the profile belongs to only one user.
+* `One to Many`: User has many posts, a post belongs to only one user.
+* `Many to Many`: Post has many tags, a tag can appear on many posts.
+
+* `One to Few`: A book has a few authors, order has a few items,
