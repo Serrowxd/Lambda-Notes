@@ -1,1 +1,180 @@
 # Authentication
+
+* `lowercase: true,` // will normalize it to be stored in lowercase. kEvIn JoLlEy comes back as "kevin jolley".
+
+```JS
+server.get('/greet', greeter, (req, res) => {
+  // greeter takes the global middleware and runs it, but when it's not being used above (// out) then it's considered local middleware. This allows you to pick and choose where you put it.
+  res.status(200).json({ api: 'running!', greeting: req.hello });
+});
+```
+
+`const User = require('./auth/UserModel');` will grab the User schema and return it with
+
+```JS
+server.post('/register', (req, res) => {
+  const user = new User(req.body);
+
+  user
+    .save()
+    .then((savedUser = res.status(200).json(savedUser)))
+    .catch(err => res.status(500).json(err));
+});
+```
+
+### HOWEVER, this still gives back the password as a string.
+
+```JS
+const mongoose = require('mongoose');
+
+const userSchema = new mongoose.Schema({
+  username: {
+    type: String,
+    unique: true,
+    required: true,
+    index: true,
+    lowercase: true, // will normalize it to be stored in lowercase. kEvIn JoLlEy comes back as "kevin jolley".
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+});
+
+// Middleware
+UserSchema.pre('save', function(next) {
+  console.log('pre save hook');
+
+  next();
+});
+
+module.exports = mongoose.model('User', userSchema);
+```
+
+## Hashing vs Encryption
+
+### Encrytption is a two-way process.
+
+* Plane text password + private key = encrypted passowrd.
+* Private key + encrypted password = plain text password.
+
+**Hashing Code is a one way process. There is no way to get the original pass from the hash.**
+
+* paramaters + password => hash
+* A hash is like a "pure function". Given the same input, always returns the same output.
+* Algorythms - MD5, SHA1-n - they alone are no good, because they are optimized for speed.
+* We need a way to slow down the production of hashes => cost or rounds.
+  * cost = the number of rounds that the result will be hashed recusively.
+  * Adding rounds, the attacker needs to know the inputs, the hashing function, and the # of rounds.
+
+[hash] + [time] = [Key Derivation Function] = bcrypt.
+
+`npm install bcrypt`
+
+## Code Holder
+
+### Server.js
+
+```JS
+const express = require('express');
+const mongoose = require('mongoose');
+
+const User = require('./auth/UserModel');
+
+// Mongoose
+mongoose
+  .connect('mongodb://localhost/authdb')
+  .then(() => {
+    console.log('\n=== connected to MongoDB ===\n');
+  })
+  .catch(err => console.log('database connection failed', err));
+
+// Server
+const server = express();
+
+// Global Middleware
+const greeter = (req, res, next) => {
+  req.hello = `Hello Kevin!`;
+
+  next();
+};
+
+// Middleware
+server.use(express.json());
+// server.use(greeter);
+
+server.get('/', (req, res) => {
+  res.status(200).json({ api: 'running!', greeting: req.hello });
+});
+
+server.post('/register', (req, res) => {
+  const { username, password } = req.body;
+  User.findOne({ username })
+    .then(user => {
+      if (user) {
+        user.isPasswordValid(password, cb); // maybe a promise
+      }
+    })
+    .catch(err => res.status(500).json(err));
+});
+
+server.get('/greet', greeter, (req, res) => {
+  // greeter takes the global middleware and runs it, but when it's not being used above (// out) then it's considered local middleware. This allows you to pick and choose where you put it.
+  res.status(200).json({ api: 'running!', greeting: req.hello });
+});
+
+server.post('/login', (req, res) => {
+  const user = new User(req.body);
+
+  user
+    .save()
+    .then((savedUser = res.status(200).json(savedUser)))
+    .catch(err => res.status(500).json(err));
+});
+
+server.listen(5000, () => console.log('\n=== api on port 5000 ===\n'));
+```
+
+### UserModel.js
+
+```JS
+const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+
+const userSchema = new mongoose.Schema({
+  username: {
+    type: String,
+    unique: true,
+    required: true,
+    index: true,
+    lowercase: true, // will normalize it to be stored in lowercase. kEvIn JoLlEy comes back as "kevin jolley".
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+});
+
+// Middleware
+UserSchema.pre('save', function(next) {
+  // cannot be an arrow function
+  console.log('pre save hook');
+  bcrypt.hash(this.password, 16.5, (err, hash) => {
+    // 2 ^ 16.5 ~ 92k rounds of hashing
+    if (err) {
+      return next(err);
+    }
+
+    this.password = hash;
+
+    return next();
+  }); // this.password, rounds
+});
+
+UserSchema.methods.isPasswordValid = function(passwordGuess) {
+  // cannot be an arrow function
+  return bcrypt.compare(passwordGuess, this.password);
+};
+
+module.exports = mongoose.model('User', userSchema);
+```
