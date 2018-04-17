@@ -71,6 +71,20 @@ module.exports = mongoose.model('User', userSchema);
 
 `npm install bcrypt`
 
+**Schema - compiles -> model - instantiate -> mongoose document -> db document**
+
+A `Model` is defined as what you're exporting in the Schema.
+**It is essentially a constructor function.**
+
+```JS
+function User (info) {
+this.name = info.name;
+this.password = info.password;
+}
+
+const user = new User({ name: 'Kevin', password: 'long' })
+```
+
 ## Code Holder
 
 ### Server.js
@@ -132,9 +146,9 @@ server.get('/greet', greeter, (req, res) => {
 });
 
 server.post('/register', (req, res) => {
-  const user = new User(req.body);
+  const user = new User(req.body); // filling up the document
 
-  user
+  user // mongoose document that is mapped to db document
     .save()
     .then((savedUser = res.status(200).json(savedUser)))
     .catch(err => res.status(500).json(err));
@@ -179,6 +193,7 @@ UserSchema.pre('save', function(next) {
   }); // this.password, rounds
 });
 
+// are executed on a mongoose document = instance of model
 UserSchema.methods.isPasswordValid = function(passwordGuess) {
   // cannot be an arrow function
   return bcrypt.compare(passwordGuess, this.password);
