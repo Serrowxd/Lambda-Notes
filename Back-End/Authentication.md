@@ -93,10 +93,18 @@ mongoose
 const server = express();
 
 // Global Middleware
-const greeter = (req, res, next) => {
-  req.hello = `Hello Kevin!`;
+// const greeter = (req, res, next) => {
+//   req.hello = `Hello Kevin!`;
+// this is the same as what is shown below with Authenticate, just less-specific.
+//   next();
+// };
 
-  next();
+const authenticate = function(name) {
+  return function(req, res, next) {
+    req.hello = `hello ${name}!`;
+
+    next();
+  };
 };
 
 // Middleware
@@ -107,7 +115,7 @@ server.get('/', (req, res) => {
   res.status(200).json({ api: 'running!', greeting: req.hello });
 });
 
-server.post('/register', (req, res) => {
+server.post('/login', (req, res) => {
   const { username, password } = req.body;
   User.findOne({ username })
     .then(user => {
@@ -123,7 +131,7 @@ server.get('/greet', greeter, (req, res) => {
   res.status(200).json({ api: 'running!', greeting: req.hello });
 });
 
-server.post('/login', (req, res) => {
+server.post('/register', (req, res) => {
   const user = new User(req.body);
 
   user
