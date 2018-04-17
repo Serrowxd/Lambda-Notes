@@ -187,7 +187,7 @@ UserSchema.pre('save', function(next) {
       return next(err);
     }
 
-    this.password = hash;
+    this.password = hash; // sets password to hash results.
 
     return next();
   }); // this.password, rounds
