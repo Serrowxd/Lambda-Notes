@@ -76,6 +76,8 @@ module.exports = mongoose.model('User', userSchema);
 A `Model` is defined as what you're exporting in the Schema.
 **It is essentially a constructor function.**
 
+`Client <- request.response -> api <- query/results -> mongo`
+
 ```JS
 function User (info) {
 this.name = info.name;
@@ -85,13 +87,30 @@ this.password = info.password;
 const user = new User({ name: 'Kevin', password: 'long' })
 ```
 
-## Code Holder
+# Sessions
+
+`npm i --save express-session`
+
+```JS
+const sessions = require('express-session');
+server.use(
+  session({
+    secret: 'nobody tosses a dwarf!',
+    cookie: { maxAge: 1 * 24 * 60 * 60 * 1000 }, // 1 day in milliseconds
+    httpOnly: true,
+    secure: true,
+  })
+);
+```
+
+# Code Holder
 
 ### Server.js
 
 ```JS
 const express = require('express');
 const mongoose = require('mongoose');
+const session = require('session');
 
 const User = require('./auth/UserModel');
 
@@ -125,25 +144,55 @@ const authenticate = function(name) {
 server.use(express.json());
 // server.use(greeter);
 
+// server.get('/', (req, res) => {
+//   res.status(200).json({ api: 'running!', greeting: req.hello });
+// });
+
 server.get('/', (req, res) => {
-  res.status(200).json({ api: 'running!', greeting: req.hello });
+  // res.send('have a cookie');
+  // local middleware
+  user.find().then(users => {
+    req.session.name = users[0].username;
+    res.json(users);
+  });
 });
+
+// server.post('/login', (req, res) => {
+//   const { username, password } = req.body;
+//   User.findOne({ username })
+//     .then(user => {
+//       if (user) {
+//         user.isPasswordValid(password, cb); // maybe a promise
+//       }
+//     })
+//     .catch(err => res.status(500).json(err));
+// });
 
 server.post('/login', (req, res) => {
   const { username, password } = req.body;
-  User.findOne({ username })
-    .then(user => {
-      if (user) {
-        user.isPasswordValid(password, cb); // maybe a promise
-      }
-    })
-    .catch(err => res.status(500).json(err));
-});
 
-server.get('/greet', greeter, (req, res) => {
-  // greeter takes the global middleware and runs it, but when it's not being used above (// out) then it's considered local middleware. This allows you to pick and choose where you put it.
-  res.status(200).json({ api: 'running!', greeting: req.hello });
-});
+  User.findOne({ username }).then(user => {
+    if (user) {
+      user.isPasswordValid(password).then(isValid => { // expects a passwordGuess
+        if (isvalid) { // You can log in
+          req.session.name = user.username;
+          res.status(200).json({ response: 'Have a cookie' });
+        } else { // You cannot log in
+          res.status(401).json({ msg: 'You shall not pass!!!' });
+        }
+      });
+    }
+  });
+
+// server.get('/greet', greeter, (req, res) => {
+//   // greeter takes the global middleware and runs it, but when it's not being used above (// out) then it's considered local middleware. This allows you to pick and choose where you put it.
+//   res.status(200).json({ api: 'running!', greeting: req.hello });
+// });
+
+server.get('/greet', (req, res) => {
+  const { name } = req.session;
+  res.send(`hello ${name}`);
+}); // will return the users name based off the session, from a cookie
 
 server.post('/register', (req, res) => {
   const user = new User(req.body); // filling up the document
