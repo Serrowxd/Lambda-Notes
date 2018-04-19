@@ -103,6 +103,23 @@ server.use(
 );
 ```
 
+# Misc
+
+`https://jwt.io/` - JSON Web Tokens / Use "Node.js" `npm install jsonwebtoken` for personal projects.
+`https://firebase.google.com/` - Firebase Deployment / Key-Value storage
+`https://howtofirebase.com/` - How to use Firebase
+
+```js
+function UserForm(props) {}
+
+// const ConnectedUserForm = connect(UserForm)
+// connect comes from react-redux
+// Connect is a function that takes a component and then returns another component that I can use.
+// export default Connected
+
+export default connect(m)(UserForm); // same as above.
+```
+
 # Code Holder
 
 ### Server.js
