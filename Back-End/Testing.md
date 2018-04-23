@@ -6,8 +6,6 @@
 
 * It's a good practice for developement, but it's something you will not get away from. Writing tests for your code to hit every mark before deployemnt looks VERY good.
 
---
-
 ## Vocab Points
 
 `Unit Test`: Writing Code that will test your code within a certain context.
