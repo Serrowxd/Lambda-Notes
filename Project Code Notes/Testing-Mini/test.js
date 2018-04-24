@@ -8,7 +8,7 @@ const sinonChai = require('sinon-chai');
 
 chai.use(sinonChai);
 
-const { name, myObj, arrayOfThings, adderFunction } = require('./index');
+const { name, myObj, arrayOfThings, adderFunction, each } = require('./index');
 
 describe('index.js', () => {
   // testing suite
@@ -55,6 +55,27 @@ describe('index.js', () => {
       });
       expect(stringsConcat).to.be.a('number');
       expect(stringsConcat).to.equal(200);
+    });
+  });
+
+  describe('each', () => {
+    it('should iterate over length of given array invoking a cb for each element', () => {
+      const arr = arrayOfThings; // set up mock data
+      const testLength = arr.length; // look at length of given array
+      const callBack = sinon.spy(); // set up our spy
+      each(arr, callBack); // invoke each, passing spy as our cb
+      expect(callBack.callCount).to.equal(testLength); // expect that cb is called === array.length
+
+      // ?? -> peek at what spy was called with.
+    });
+    it('should be calledWith the string `Hands like Houses`', () => {
+      const arr = arrayOfThings; // set up mock data
+      const testLength = arr.length; // look at length of given array
+      const callBack = sinon.spy(); // set up our spy
+      each(arr, callBack); // invoke each, passing spy as our cb
+      // expect(callBack.calledWith('Hands Like Houses')).to.be.ok; // checks to see if it was called with a specific element. Can also be called ('element', 2) to check the index.
+      // assert(callBack.calledWith('Hands Like Houses', 2), false); // gives a "false positive" test. This checks to see if it's working or just giving what you want.
+      sinon.assert.calledWith(callBack, 'Hands Like Houses'); // will check this case
     });
   });
 });

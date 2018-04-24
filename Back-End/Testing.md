@@ -22,15 +22,19 @@
 
 `Chai`: http://www.chaijs.com/
 
+`Enzyme`: https://github.com/airbnb/enzyme
+
+`Working with React`: http://airbnb.io/enzyme/docs/installation/react-16.html
+
 **_"Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: requirements are turned into very specific test cases, then the software is improved to pass the new tests, only. This is opposed to software development that allows software to be added that is not proven to meet requirements."_**
 
 `(Agile) Units`: The amount of work a programmer can get done in a week.
 
-## Mocha & Chai
+# Mocha & Chai
 
 `npm i mocha chai`
 
-**Mocha needs you to write your tests as `test.js`.**
+**Mocha needs you to write your tests as `testName.test.js`.**
 
 `Mocha` is a test framework that allows us to use assertion libraries to complete tasks - _The Test Runner_
 
@@ -69,4 +73,25 @@ var assert = chai.assert;
   assert.lengthOf(foo, 3)
   assert.property(tea, 'flavors');
   assert.lengthOf(tea.flavors, 3);
+```
+
+# Enzyme & Jest
+
+* You can use 'Describe Syntax' in React with Enzyme.
+
+### App.tests.js
+
+```JS
+import React from 'react';
+import { shallow, configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() });
+import App from './App';
+
+describe('App', () => {
+  it('renders without crashing', () => {
+
+  });
+});
 ```
