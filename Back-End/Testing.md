@@ -10,6 +10,8 @@
 
 `Unit Test`: Writing Code that will test your code within a certain context.
 
+`(Agile) Units`: The amount of work a programmer can get done in a week.
+
 ## Websites
 
 [Test-Driven Developement](https://en.wikipedia.org/wiki/Test-driven_development)
@@ -26,9 +28,7 @@
 
 [Working with React](http://airbnb.io/enzyme/docs/installation/react-16.html)
 
-**_"Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: requirements are turned into very specific test cases, then the software is improved to pass the new tests, only. This is opposed to software development that allows software to be added that is not proven to meet requirements."_**
-
-`(Agile) Units`: The amount of work a programmer can get done in a week.
+> **_"Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: requirements are turned into very specific test cases, then the software is improved to pass the new tests, only. This is opposed to software development that allows software to be added that is not proven to meet requirements."_**
 
 # Mocha & Chai
 
