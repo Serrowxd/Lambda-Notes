@@ -12,19 +12,19 @@
 
 ## Websites
 
-`Test-Driven Developement`: https://en.wikipedia.org/wiki/Test-driven_development
+[Test-Driven Developement](https://en.wikipedia.org/wiki/Test-driven_development)
 
-`Sinon`: http://sinonjs.org/
+[Sinon](http://sinonjs.org/)
 
-`Sinon-Chai`: https://github.com/domenic/sinon-chai
+[Sinon-Chai](https://github.com/domenic/sinon-chai)
 
-`Mocha`: https://mochajs.org/
+[Mocha](https://mochajs.org/)
 
-`Chai`: http://www.chaijs.com/
+[Chai](http://www.chaijs.com/)
 
-`Enzyme`: https://github.com/airbnb/enzyme
+[Enzyme](https://github.com/airbnb/enzyme)
 
-`Working with React`: http://airbnb.io/enzyme/docs/installation/react-16.html
+[Working with React](http://airbnb.io/enzyme/docs/installation/react-16.html)
 
 **_"Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: requirements are turned into very specific test cases, then the software is improved to pass the new tests, only. This is opposed to software development that allows software to be added that is not proven to meet requirements."_**
 
@@ -40,7 +40,7 @@
 
 `Chai` is a library we will use to run syntax, it comes with Mocha - _The Assertion Library_
 
-* `should`
+## `should`
 
 ```JS
 chai.should();
@@ -52,7 +52,7 @@ chai.should();
   .with.lengthOf(3);
 ```
 
-* `expect`
+## `expect`
 
 ```JS
 var expect = chai.expect;
@@ -63,7 +63,7 @@ var expect = chai.expect;
   expect(tea).to.have.property('flavors').with.lengthOf(3);
 ```
 
-* `assert`
+## `assert`
 
 ```JS
 var assert = chai.assert;
