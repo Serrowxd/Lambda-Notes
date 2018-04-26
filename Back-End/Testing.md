@@ -12,7 +12,13 @@
 
 `(Agile) Units`: The amount of work a programmer can get done in a week.
 
+`before`: Will run before all of the tests.
+
+`beforeEach`: Will run before each inner `describe`.
+
 ## Websites
+
+[Wes Bos - Async + Await (YT VIDEO)](https://www.youtube.com/watch?v=9YkUCxvaLEk)
 
 [Test-Driven Developement](https://en.wikipedia.org/wiki/Test-driven_development)
 
