@@ -30,6 +30,8 @@ Tyler McGinnis taught Ben and Ryan how to code.
 
 [Hack Reactor -- School](https://www.hackreactor.com/?nav=1#)
 
+Ryan does not recommend Hack Reactor - Lambda is better. Hack Reactor only takes elitists, nothing less.
+
 ---
 
 CEO: "Where's so and so"
@@ -43,3 +45,5 @@ You fill your 40 hours and leave, unless you feel like you should stay later.
 Stay well rounded, but also stay localized. **Always be learning, do something every single day as a developer that you didn't know how to do before**
 
 Learn how to become comfortable with **fear**. It will be a part of your life forever.
+
+The more you learn, the more job security you'll have.
