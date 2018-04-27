@@ -101,3 +101,7 @@ describe('App', () => {
   });
 });
 ```
+
+# End of Day Notes
+
+* It's more common to build custom error cases - most companies will have things like `error: CONSTANT.ERROR_MESSAGE` where the error message lives on its own in a different file.
