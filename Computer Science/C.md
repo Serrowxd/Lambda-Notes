@@ -107,3 +107,9 @@ int main(void)
 ```
 
 `arrays`: A continguous block of memory in ram. There is no way of creating a dynamic number of slots for the array, but you can reserve sections of memory that allow you resize the chunk of memory you are using.
+
+# Day 2
+
+# Day 3
+
+* Come back to Review this week !!!
