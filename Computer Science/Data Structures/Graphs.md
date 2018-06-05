@@ -11,3 +11,14 @@ Some graphs can be cyclical(check the spelling on this) or acyclical.
 Cyclic being a loop cycle essentially.
 
 You can use a matrix to map your datastructure, or a list.
+
+Example:
+P | A B C
+A | 0 1 0
+B | 0 0 1
+C | 0 1 0
+
+This shows that A and B are connected, but A is not connected to C.
+Same goes for B, which it shows that it is not connected to A but it is connected to C.
+
+What are arrays in JavaScript? Objects
