@@ -21,3 +21,5 @@ for (let i = 0; i < 1000; i += 4) {
 // break //
 
 **that bitwise OR is the same as doing Math.trunc btw, because javascript truncates numbers to 32bits to do bitwise ops** - from Ronnie
+
+// break //
