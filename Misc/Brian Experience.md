@@ -7,3 +7,11 @@ Questions to ask:
 "Should I start working for you, where would you see me in 5 years?"
 
 Obviously don't just take the response as a deal breaker, get a feel for the whole conversation by the questions you ask because it is a two-way street afterall.
+
+//
+
+If you're working on gameplay and mechanics then you can just use premade models.
+
+Unity is great and lightweight, Unreal is more multiplayer focused.
+
+Game Models - [TurboSquid](https://www.turbosquid.com/)
