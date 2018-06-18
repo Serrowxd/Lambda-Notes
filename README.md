@@ -14,4 +14,5 @@ Cheat Sheet (https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 - `Misc:` Misc Notes and Instructor Interviews.
 - `Project Code Notes:` Code from projects with notes taken.
 - `Project Markdown:` Markdown Documentation Notes.
+- `Python&Django:` Python and Django notes and code.
 - `ReactTransitions:` React Transitions Notes.
