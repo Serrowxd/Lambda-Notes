@@ -110,3 +110,31 @@ class BouncingRainbow(BouncingBall, RainbowBall):
 ```
 
 `BouncingRainbow` is already calling everything contained within `Ball`, `BouncingBall`, and `RainbowBall` - therefor it already knows what to do, so when called it simply needs a `pass` and it will run.
+
+---
+
+## Commandline
+
+`python -m pip install -U pip` - installs pip
+
+`pip install pipenv` - installs pipenv
+
+`python` - opens the python environment
+
+`python src/hello_python.py` - runs python scripts at `python` then `directory/file.py`.
+
+`pipenv --three` will create a pip environment specifically for python 3.
+
+`pipenv shell` will open the pip shell.
+
+**Note that this does not tell you when you are inside the shell, you will need to have a terminal specifically for it or you can run `pipenv shell` again to check.**
+
+---
+
+System Control Pannel
+
+Advanced System Settings
+
+Environment Variables
+
+Path - Copy & Paste `c:\users\kevin\appdata\local\programs\python\python36-32\Scripts`
