@@ -36,3 +36,46 @@ The entry point of a python project is `wsgi.py` - this would be what you use if
 EJS Templates - good for templating
 
 `Flask` is another way of doing Python frameworks and websites. Linkedin and Pintrest use Flask.
+
+---
+
+**Everything below needs to be run from within `pipenv shell`**
+
+`django-admin startapp notes` will create a new APP within your PROJECT folder.
+
+`python manage.py runserver` - then go to the server and it will run it.
+
+**if you go to the server/admin, it will give you the ability to do an admin log-in**
+
+`python manage.py showmigrations` shows your migrations
+
+`python manage.py sqlmigrate admin migration-name` tells us the sql commands that it is building for us to set up the database and move all of the data over.
+
+`python manage.py migrate` will run all your SQL, then you won't get issues with unapplied migrations.
+
+`python manage.py shell` opens a terminal window that you can use for imports. We can run whatever Python commands we want here.
+
+**Django is built around models**
+
+`from notes.models import Note`
+
+`pipenv install python-decouple` is a python decoupler that allows us to hide modules.
+
+`from decouple import config` gives you access to the library in your `settings.py`
+
+[Python Decouple](https://github.com/henriquebastos/python-decouple)
+
+```PY
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = config("SECRET_KEY")
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = config("DEBUG", default=False, cast=bool)
+```
+
+The information from these is stored in a baseline .env file - like so
+
+```
+DEBUG=True
+SECRET_KEY=v#w43r()t@+yq#v@c2ac9w!406!jrn9zwqfw+zwqpepa$1+x7r
+```
