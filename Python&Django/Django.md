@@ -203,3 +203,177 @@ class PersonalNote(Note):
 Can also be very danergous when you want to ARCHIVE the user and their information, rather than completely deleting them. This will delete them and all their information.
 
 `python manage.py dbshell` opens the sqlite3 shell.
+
+---
+
+**The Django REST Framework**
+
+[REST Link](http://www.django-rest-framework.org/)
+
+`pipenv install` --
+
+`djangorestframework`
+
+`markdown`
+
+`django-filter`
+
+`"rest_framework",` added to `INSTALLED_APPS` in `settings.py`
+
+A good order to go for `INSTALLED_APPS` is "My Stuff", "3rd Party Stuff", "Included Stuff"
+
+`url(r"^api-auth/", include("rest_framework.urls")),` added to `urls.py` under `urlpatterns`
+
+```PY
+REST_FRAMEWORK = {
+    # Use Django's standard 'django.contrib.auth' permissions,
+    # or allow read-only access for unathenticated users.
+    "DEFAULT_PERMISSIONS_CLASSES": [
+        "rest_framework.permissions.DjangoModelPemissionsOrAnonReadOnly"
+    ]
+}
+```
+
+Added to `settings.py` at the bottom
+
+`from django.conf.urls import url, include` in `urls.py` imports url and include
+
+`from rest_framework import serializers` imports serializers, which turns data from complex structures that we use to 1's and 0's so that they can be moved efficiently. It's usually best to name a serializer after what it's serializing.
+
+```PY
+from rest_framework import serializers, viewsets
+from .models import Note
+
+
+class NoteSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Note
+        fields = ("title", "content")
+
+
+class NoteViewset(viewsets.ModelViewSet):
+    serializer_class = NoteSerializer
+    queryset = Note.objects.all()
+```
+
+This is all included in `api.py`
+
+```PY
+from django.contrib import admin
+from django.urls import path, include
+from rest_framework import routers
+from notes.api import NoteViewset, PersonalNoteViewset
+
+# from django.conf.urls import url, include ## this is not needed because of routers.
+
+
+router = routers.DefaultRouter()
+router.register(r"notes", NoteViewset)
+router.register(r"personal_notes", PersonalNoteViewset)
+# you can continue to add more by just adding `router.register` to the line below and swapping out the imports.
+
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path(r"api/", include(router.urls)),
+    # url(r"^api-auth/", include("rest_framework.urls")), ## this is overwritten by the above path(r"api/") code.
+]
+```
+
+`urls.py` updated with above code.
+
+```PY
+from rest_framework import serializers, viewsets
+from .models import Note, PersonalNote
+
+
+class NoteSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Note
+        fields = ("title", "content")
+
+
+class NoteViewset(viewsets.ModelViewSet):
+    serializer_class = NoteSerializer
+    queryset = Note.objects.all()
+
+
+class PersonalNoteSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = PersonalNote
+        fields = ("title", "content")
+
+    def create(self, validated_data):
+        # import pdb; pdb.set_trace
+        user = self.context["request"].user
+        personal_note = PersonalNote.objects.create(user=user, **validated_data)
+        return personal_note
+
+
+class PersonalNoteViewset(viewsets.ModelViewSet):
+    serializer_class = PersonalNoteSerializer
+    queryset = PersonalNote.objects.all()
+```
+
+`api.py` update
+
+```PY
+    def create(self, validated_data):
+        # import pdb; pdb.set_trace
+        user = self.context["request"].user
+        personal_note = PersonalNote.objects.create(user=user, **validated_data)
+        return personal_note
+```
+
+`**` means "this is a list of keyword arguments"
+
+---
+
+**Fullstack**
+
+When connecting a React front-end to a Django back-end, you need to send a post request. This can be done with Axios as well. As long as it passes the authentication tests, it will work!
+
+```PY
+from rest_framework import serializers, viewsets
+from .models import Note, PersonalNote
+
+
+class NoteSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Note
+        fields = ("title", "content")
+
+
+class NoteViewset(viewsets.ModelViewSet):
+    serializer_class = NoteSerializer
+    queryset = Note.objects.all()
+
+
+class PersonalNoteSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = PersonalNote
+        fields = ("title", "content")
+
+    def create(self, validated_data):
+        # import pdb; pdb.set_trace
+        user = self.context["request"].user
+        personal_note = PersonalNote.objects.create(user=user, **validated_data)
+        return personal_note
+
+
+class PersonalNoteViewset(viewsets.ModelViewSet):
+    serializer_class = PersonalNoteSerializer
+    queryset = PersonalNote.objects.none()
+
+    def get_queryset(self):
+        user = self.request.user
+
+        if user.is_anonymouse:
+            return queryset
+
+        else:
+            return PersonalNote.objects.filter(user=user)
+```
+
+`queryset = PersonalNote.objects.none()` sets an empty list rather than a full one.
+
+With the above code, when you query for a personal note, it will only search for that user.
