@@ -191,4 +191,15 @@ class Note(models.Model):
 
 `category` in this case will populate with a prompt when doing it with `python manage.py makemigrations`, this will ask you to implement a default. For this, you can just put a string of `default` with Option 1.
 
----
+`user = models.ForeignKey(User, on_delete=models.CASCADE)` is saying that on delete, it will delete not only the user but all the information attached to them.
+
+`from django.contrib.auth.models import User` will import the user for above code.
+
+```PY
+class PersonalNote(Note):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+```
+
+Can also be very danergous when you want to ARCHIVE the user and their information, rather than completely deleting them. This will delete them and all their information.
+
+`python manage.py dbshell` opens the sqlite3 shell.
