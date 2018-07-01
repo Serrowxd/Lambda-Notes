@@ -90,7 +90,7 @@ You can apply props or styles with
 
 ```JS
 this.props.object
-this.state.objectd
+this.state.object
 ```
 
 Inside a function component you use curly braces with the name of the prop inside the object.

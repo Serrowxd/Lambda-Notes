@@ -377,3 +377,5 @@ class PersonalNoteViewset(viewsets.ModelViewSet):
 `queryset = PersonalNote.objects.none()` sets an empty list rather than a full one.
 
 With the above code, when you query for a personal note, it will only search for that user.
+
+---
