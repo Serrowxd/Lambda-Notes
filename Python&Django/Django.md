@@ -379,3 +379,5 @@ class PersonalNoteViewset(viewsets.ModelViewSet):
 With the above code, when you query for a personal note, it will only search for that user.
 
 ---
+
+Relational Databases ~ **ask about this**
