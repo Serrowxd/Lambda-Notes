@@ -1,5 +1,11 @@
 # Careers
 
+## Websites:
+
+Creddle.io
+Huntr.co
+Canva.com
+
 Landing a job takes between 90-180 days / 3-6 months.
 
 Apply to 4-5 jobs a day, job burn-out is a thing so don't over-do it. Don't double-apply, keep track of where you're applying to.
