@@ -25,3 +25,19 @@ When you go into your job search, keep in mind it's going to take a lot applicat
 "There is no such thing as done code, or something that you're satisified with"
 
 You're never done, you just ran out of time and they take it away because it's good enough.
+
+~
+
+The requirements are more of a "wish-list" where you don't always get what's on your wish list. You don't have to have a ton of experience.
+
+Reasearch:
+
+Singleton - if it doesn't exist, create itself. Etc--
+
+When applying out-of-state, don't worry about it. Let them decide. It does make you less desireable, but you don't know how much or how so.
+
+If you have a reasonable accomidiation for doing the job, or learning how to do the job quickly - apply for it.
+
+At the same time you're also interviewing them and seeing if YOU want to work for THEM.
+
+https://angel.co/ == Start-up Jobs
