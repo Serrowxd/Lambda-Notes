@@ -98,17 +98,17 @@ In Hungarian Notation you prefix the name of the variable with the data type it 
 
 ### Primitive Types
 
-|                  | C# Type | .NET Type | Bytes | Range                   |
-| ---------------- | ------- | --------- | ----- | ----------------------- |
-| Integral Numbers | byte    | Byte      | 1     | 0 to 255                |
-|                  | short   | Int16     | 2     | -32,768 to 32,767       |
-|                  | int     | Int32     | 4     | -2.1B to 2.1B           |
-|                  | long    | Int64     | 8     | ...                     |
-| Real Numbers     | float   | Single    | 4     | -3.4x10^38 to 3.4x10^38 |
-|                  | double  | Double    | 8     | ...                     |
-|                  | decimal | Decimal   | 16    | -7.9x10^28 to 7.9x10^28 |
-| Character        | char    | Char      | 2     | Unicode Characters      |
-| Boolean          | bool    | Boolean   | 1     | True/False              |
+|                  | C# Type   | .NET Type | Bytes | Range                   |
+| ---------------- | --------- | --------- | ----- | ----------------------- |
+| Integral Numbers | `byte`    | `Byte`    | 1     | 0 to 255                |
+|                  | `short`   | `Int16`   | 2     | -32,768 to 32,767       |
+|                  | `int`     | `Int32`   | 4     | -2.1B to 2.1B           |
+|                  | `long`    | `Int64`   | 8     | ...                     |
+| Real Numbers     | `float`   | `Single`  | 4     | -3.4x10^38 to 3.4x10^38 |
+|                  | `double`  | `Double`  | 8     | ...                     |
+|                  | `decimal` | `Decimal` | 16    | -7.9x10^28 to 7.9x10^28 |
+| Character        | `char`    | `Char`    | 2     | Unicode Characters      |
+| Boolean          | `bool`    | `Boolean` | 1     | True/False              |
 
 **C# Keywords are always lowercase**
 
@@ -296,8 +296,85 @@ This is known as a "Try - Catch". This is similar to how CRUD opperations work i
 
 |           | Operator | Example |
 | :-------: | :------: | :-----: |
-|    Add    |    +     |  a + b  |
-| Subtract  |    -     |  a - b  |
-| Multiply  |    \*    | a \* b  |
-|  Divide   |    /     |  a / b  |
-| Remainder |    %     |  a % b  |
+|    Add    |   `+`    | `a + b` |
+| Subtract  |   `-`    | `a - b` |
+| Multiply  |   `*`    | `a * b` |
+|  Divide   |   `/`    | `a / b` |
+| Remainder |   `%`    | `a % b` |
+
+We use these in mathematical computations where we are using numbers.
+
+|           | Operator | Example |   Same As   |
+| :-------: | :------: | :-----: | :---------: |
+| Increment |   `++`   |  `a++`  | `a = a + 1` |
+| Decrement |   `--`   |  `a--`  | `a = a - 1` |
+
+These are the same as they are in JavaScript.
+
+**Postfix Increment**
+
+```C#
+int a = 1;
+int b = a++;
+```
+
+After this code runs, `a = 2` and `b = 1`.
+
+```C#
+int a = 1;
+int b = ++a;
+```
+
+After this code runs, `a=2` and `b=2`.
+
+**Comparison Operators**
+
+|                          | Operator | Example  |
+| :----------------------: | :------: | :------: |
+|          Equal           |   `==`   | `a == b` |
+|        Not Equal         |   `!=`   | `a != b` |
+|       Greater than       |   `>`    | `a > b`  |
+| Greater than or equal to |   `>=`   | `a >= b` |
+|        Less than         |   `<`    | `a < b`  |
+|  Less than or equal to   |   `<=`   | `a <= b` |
+
+**Assignment Operators**
+
+|                           | Operator | Example  |   Same As   |
+| :-----------------------: | :------: | :------: | :---------: |
+|        Assignment         |   `=`    | `a = 1`  |             |
+|    Addition Assignment    |   `+=`   | `a += 3` | `a = a + 3` |
+|  Subtraction Assignment   |   `-=`   | `a -= 3` |             |
+| Multiplication Assignment |   `*=`   | `a *= 3` |             |
+|    Division Assignment    |   `/=`   | `a /= 3` |             |
+
+**Logical Operators**
+
+|     | Operator | Example  |
+| :-: | :------: | :------: |
+| And |   `&&`   | `a && b` |
+| Or  |   `||`   | `a || b` |
+| Not |   `!`    |   `!a`   |
+
+These are often used in Booleans and Conditional Statements.
+
+**Bitwise Operators**
+
+|     | Operator | Example |
+| :-: | :------: | :-----: |
+| And |   `&`    | `a & b` |
+| Or  |   `|`    | `a | b` |
+
+These are often used in lower level programming, like the Windows API, Sockets, or Encryption.
+
+---
+
+**The result of a comparison expression is always returned as a boolean.**
+
+Comments in C# are easy
+
+`// for single lines`
+
+`/* for multiple lines */`
+
+You can also write multiple lines with the single lines, which is the preferred method.
