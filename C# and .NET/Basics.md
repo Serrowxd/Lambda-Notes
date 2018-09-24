@@ -95,3 +95,17 @@ In Hungarian Notation you prefix the name of the variable with the data type it 
 
 **For Local Variables:** _Camel Case_ - `int number;`
 **For Constants:** _Pascal Case_ - `const int MaxZom = 5;`
+
+### Primitive Types
+
+|                  | C# Type | .NET Type | Bytes | Range                   |
+| ---------------- | ------- | --------- | ----- | ----------------------- |
+| Integral Numbers | byte    | Byte      | 1     | 0 to 255                |
+|                  | short   | Int16     | 2     | -32,768 to 32,767       |
+|                  | int     | Int32     | 4     | -2.1B to 2.1B           |
+|                  | long    | Int64     | 8     | ...                     |
+| Real Numbers     | float   | Single    | 4     | -3.4x10^38 to 3.4x10^38 |
+|                  | double  | Double    | 8     | ...                     |
+|                  | decimal | Decimal   | 16    | -7.9x10^28 to 7.9x10^28 |
+| Character        | char    | Char      | 2     | Unicode Characters      |
+| Boolean          | bool    | Boolean   | 1     | True/False              |
