@@ -17,5 +17,8 @@ Cheat Sheet (https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 - `Project Code Notes:` Code from projects with notes taken.
 - `Project Markdown:` Markdown Documentation Notes.
 - `Python&Django:` Python and Django notes and code.
+- `C# and .NET:` Notes on C# when working around .NET, as well as basic fundementals.
 
 ---
+
+**Graduated Class of CS8 - August 2018**
