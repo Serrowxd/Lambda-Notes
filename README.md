@@ -58,10 +58,11 @@ _Frameworks_
 _Deployment_
 
 - [Firebase](https://firebase.google.com)
+- [Amazon Web Services (AWS)](https://aws.amazon.com/)
+- [Azure](https://azure.microsoft.com/en-us/)
 - [Heroku](https://www.heroku.com/)
 - [Netlify](https://www.netlify.com/)
 - [Digital Ocean](https://www.digitalocean.com/)
-- [Amazon Web Services (AWS)](https://aws.amazon.com/)
 
 _CMS_
 
