@@ -39,6 +39,10 @@ _Resources_
 - [W3Schools](https://www.w3schools.com/)
 - [Stack Overflow](https://stackoverflow.com/)
 
+_Middleware_
+
+- [Socket.io](https://socket.io/)
+
 _Styling_
 
 - [MeyerWeb CSS Reset](https://meyerweb.com/eric/tools/css/reset/)
@@ -92,6 +96,8 @@ _Misc_
   - [ReactNative](http://www.reactnative.com/)
     - [Expo](https://expo.io/)
   - [Angular](https://angular.io/)
+  - [NodeJS](https://nodejs.org/en/)
+    - [Mongoose](https://mongoosejs.com/)
 
 - [Python](https://www.python.org/)
 

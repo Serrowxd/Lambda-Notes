@@ -94,6 +94,7 @@ Here we have a constant, a data type, an identifier, and then a value.
 In Hungarian Notation you prefix the name of the variable with the data type it uses. It's not used in C#, however it is used in C and C++.
 
 **For Local Variables:** _Camel Case_ - `int number;`
+
 **For Constants:** _Pascal Case_ - `const int MaxZom = 5;`
 
 ### Primitive Types
