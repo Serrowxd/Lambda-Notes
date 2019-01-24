@@ -23,8 +23,10 @@ Cheat Sheet (https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
 ## Milestones
 
-- **Graduated from Lambda School - CS8 Cohort** -- _August, 2018_
+- **Started Class @ Lambda School - CS8 Cohort** -- _February 5, 2018_
+- **Graduated from Lambda School - CS8 Cohort** -- _August 17, 2018_
 - **1,000 Github Commits - Year 1** -- _November 21, 2018_
+- **First job as a Developer - Anadarko!** -- _December 28, 2018_
 
 ---
 
