@@ -2,6 +2,8 @@
 
 Markdown Lambda Notes for CS8 - Kevin Jolley
 
+This is a misc compilation of my time during Lambda along with a little sprinkle of outside learning post-graduation.
+
 Cheat Sheet (https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
 ## Documentation:
