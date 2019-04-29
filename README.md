@@ -14,6 +14,8 @@ Cheat Sheet (https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 - `Full-Stack:` Deployment Notes.
 - `Job Search:` Job Search Notes.
 - `Misc:` Misc Notes and Instructor Interviews.
+- `Personal Code:` Notes and snipets of code from side projects.
+- `Personal Notes:` Personalized notes used to document different ideas.
 - `Project Code Notes:` Code from projects with notes taken.
 - `Project Markdown:` Markdown Documentation Notes.
 - `Python&Django:` Python and Django notes and code.
@@ -23,8 +25,10 @@ Cheat Sheet (https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
 ## Milestones
 
+- **Started Lambda School - CS8 Cohort** -- _February 4, 2018_
 - **Graduated from Lambda School - CS8 Cohort** -- _August, 2018_
 - **1,000 Github Commits - Year 1** -- _November 21, 2018_
+- **Hired!** -- _January 7, 2019_
 
 ---
 
